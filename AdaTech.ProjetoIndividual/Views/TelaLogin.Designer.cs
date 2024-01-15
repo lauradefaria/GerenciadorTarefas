@@ -1,18 +1,25 @@
-﻿namespace AdaTech.ProjetoIndividual
+﻿using AdaTech.ProjetoIndividual.Controllers;
+
+namespace AdaTech.ProjetoIndividual
 {
     partial class TelaLogin
     {
-        private Label lblUsuario;
-        private TextBox txtUsuario;
-        private Label lblSenha;
-        private TextBox txtSenha;
-        private Button btnLogin;
         private Panel painelLogin;
-
-        internal TextBox TxtUsuario => txtUsuario;
-        internal TextBox TxtSenha => txtSenha;
+        private TextBox txtUsuario;
+        private TextBox txtSenha;
+        private Button btnEntrar;
+        private ComboBox cmbUsuario;
+        private TelaInicialController controller;
+        private int largura;
+        private int altura;
 
         private System.ComponentModel.IContainer components = null;
+
+        internal Panel PainelLogin { get => painelLogin; private set => painelLogin = value; }
+        internal TextBox TxtUsuario { get => txtUsuario; private set => txtUsuario = value; }
+        internal TextBox TxtSenha { get => txtSenha; private set => txtSenha = value; }
+        internal ComboBox CmbUsuario { get => cmbUsuario; private set => cmbUsuario = value; }
+        internal Button BtnEntrar { get => btnEntrar; private set => btnEntrar = value; }
 
         protected override void Dispose(bool disposing)
         {
@@ -27,61 +34,83 @@
 
         private void InitializeComponent()
         {
-            WindowState = FormWindowState.Maximized;
-            BackColor = Color.FromArgb(200, 162, 200);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Tela Login";
+            this.Visible = true;
 
-            painelLogin = new Panel
+            painelLogin = new Panel();
+            painelLogin.Size = new Size(largura / 3, altura / 3);
+            painelLogin.Location = new Point(largura / 3, altura / 3);
+            painelLogin.BackColor = Color.LightGray;
+            painelLogin.BorderStyle = BorderStyle.FixedSingle;
+            painelLogin.Anchor = AnchorStyles.None;
+            painelLogin.AutoScroll = true;
+
+
+            cmbUsuario = new ComboBox();
+            cmbUsuario.Location = new Point(painelLogin.Width / 4, painelLogin.Height / 8);
+            cmbUsuario.Width = painelLogin.Width / 2;
+            cmbUsuario.Height = painelLogin.Height / 10;
+            cmbUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUsuario.DataSource = new List<string> { "Administrador", "Tech Leader", "Desenvolvedor" };
+
+            Label lblUsuarioDica = new Label();
+            lblUsuarioDica.Text = "Usuário";
+            lblUsuarioDica.AutoSize = true;
+            lblUsuarioDica.Location = new Point(painelLogin.Width / 4, painelLogin.Height / 4);
+            lblUsuarioDica.Anchor = AnchorStyles.None;
+            lblUsuarioDica.ForeColor = Color.Black;
+
+
+            txtUsuario = new TextBox();
+            txtUsuario.Size = new Size(painelLogin.Width / 2, painelLogin.Height / 10);
+            txtUsuario.Location = new Point(painelLogin.Width / 4, painelLogin.Height / 3);
+            txtUsuario.Anchor = AnchorStyles.None;
+            txtUsuario.KeyDown += (s, e) =>
             {
-                Size = new Size(ClientSize.Width + 200, ClientSize.Height),
-                Location = new Point(ClientSize.Width - 400, ClientSize.Height - 300),
-                BackColor = Color.FromArgb(255, 228, 196),
-                BorderStyle = BorderStyle.FixedSingle,
-                Anchor = AnchorStyles.None
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnEntrar.PerformClick();
+                }
             };
 
-            this.lblUsuario = new Label
+            Label lblSenha = new Label();
+            lblSenha.Text = "Senha";
+            lblSenha.AutoSize = true;
+            lblSenha.Location = new Point(painelLogin.Width / 4, (painelLogin.Height / 2) - 20);
+            lblSenha.Anchor = AnchorStyles.None;
+            lblSenha.ForeColor = Color.Black;
+
+            txtSenha = new TextBox();
+            txtSenha.Size = new Size(painelLogin.Width / 2, painelLogin.Height / 10 + 30);
+            txtSenha.Location = new Point(painelLogin.Width / 4, painelLogin.Height / 2);
+            txtSenha.Anchor = AnchorStyles.None;
+            txtSenha.PasswordChar = '*';
+            txtSenha.KeyDown += (s, e) =>
             {
-                AutoSize = true,
-                Location = new Point(10, 20),
-                Text = "Usuário:"
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnEntrar.PerformClick();
+                }
             };
 
-            this.txtUsuario = new TextBox
-            {
-                Location = new Point(120, 20),
-                Size = new Size(150, 20)
-            };
+            btnEntrar = new Button();
+            btnEntrar.Size = new Size(painelLogin.Width / 2, painelLogin.Height / 10);
+            btnEntrar.Location = new Point(painelLogin.Width / 4, painelLogin.Height / 4 * 3);
+            btnEntrar.Anchor = AnchorStyles.None;
+            btnEntrar.Text = "Entrar";
+            btnEntrar.Click += OnClickEntrar;
 
-            this.lblSenha = new Label
-            {
-                AutoSize = true,
-                Location = new Point(10, 50),
-                Text = "Senha:"
-            };
+            painelLogin.Controls.Add(txtUsuario);
+            painelLogin.Controls.Add(txtSenha);
+            painelLogin.Controls.Add(btnEntrar);
+            painelLogin.Controls.Add(cmbUsuario);
+            painelLogin.Controls.Add(lblUsuarioDica);
+            painelLogin.Controls.Add(lblSenha);
 
-            this.txtSenha = new TextBox
-            {
-                Location = new Point(120, 50),
-                Size = new Size(150, 20),
-                PasswordChar = '*'
-            };
-
-            this.btnLogin = new Button
-            {
-                Location = new Point(120, 80),
-                Size = new Size(75, 23),
-                Text = "Login"
-            };
-
-            this.btnLogin.Click += OnClickEntrar;
-
-            painelLogin.Controls.Add(this.lblUsuario);
-            painelLogin.Controls.Add(this.txtUsuario);
-            painelLogin.Controls.Add(this.lblSenha);
-            painelLogin.Controls.Add(this.txtSenha);
-            painelLogin.Controls.Add(this.btnLogin);
-
-            this.Controls.Add(painelLogin);
+            Controls.Add(painelLogin);
         }
 
         #endregion
