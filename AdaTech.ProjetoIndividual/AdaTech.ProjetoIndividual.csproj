@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Models\Business\UsuariosBusiness\" />
     <Folder Include="Models\Business\TarefasBusiness\" />
     <Folder Include="Models\Data\" />
   </ItemGroup>
