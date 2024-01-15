@@ -153,7 +153,7 @@ Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Adminis
 ## Itens Obrigatórios
 
 **GERAIS**
-- [ ] Existem apenas dois vínculos: tech leader e desenvolvedores. <br/>
+- [X] Existem apenas dois vínculos: tech leader e desenvolvedores. <br/>
 - [ ] Para entrar no sistema, todos precisam de uma chave de acesso<br/><br/>
 
 **TECH LEADER**
