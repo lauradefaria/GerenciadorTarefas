@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdaTech.ProjetoIndividual.Models.Data;
 
 namespace AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness
 {
@@ -107,7 +108,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness
             do
             {
                 id = new Random().Next(1, 1000);
-            } while (TarefaData.VerificarId(_id));
+            } while (TarefasData.VerificarId(_id));
 
             return id;
         }
