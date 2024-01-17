@@ -72,11 +72,36 @@ namespace AdaTech.ProjetoIndividual.Views
                 Controls.Add(painel);
             }
         }
+
         #region Painel Desenvolvedor
         private Panel CriarPainelDesenvolvedor(Panel painelDesenvolvedor)
         {
             painelDesenvolvedor.Controls.Clear();
-                        
+
+            #region Botão VizualizarTarefas
+
+            Button bntVisualizarTarefas = new Button();
+            bntVisualizarTarefas.Size = new Size(160, 30);
+            bntVisualizarTarefas.Location = new Point(20, 50);
+            bntVisualizarTarefas.Anchor = AnchorStyles.Right;
+            bntVisualizarTarefas.Text = "Visualizar Tarefas";
+            bntVisualizarTarefas.Click += OnClickVisualizarTarefas;
+
+            #endregion
+
+            #region Botão CriarTarefas
+
+            Button bntCriarTarefas = new Button();
+            bntCriarTarefas.Size = new Size(160, 30);
+            bntCriarTarefas.Location = new Point(20, 90);
+            bntCriarTarefas.Anchor = AnchorStyles.Right;
+            bntCriarTarefas.Text = "Criar Tarefa";
+            bntCriarTarefas.Click += OnClickCriarTarefas;
+
+            #endregion
+
+            painelDesenvolvedor.Controls.Add(bntVisualizarTarefas);
+            painelDesenvolvedor.Controls.Add(bntCriarTarefas);
             return painelDesenvolvedor;
         }
         #endregion

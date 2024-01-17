@@ -31,10 +31,15 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             _techLeader.Add(new TechLeader("123456", "Laura de Faria", "4455667788", "laura.faria@gmail.com"));
         }
+        internal static void CarregarDesenvolvedor()
+        {
+            _desenvolvedor.Add(new Desenvolvedor("000000", "Carolina de Faria", "0123456789", "carolina.faria@gmail.com"));
+        }
 
         internal static List<Usuario> CarregarUsuariosAtivos()
         {
             CarregarTechLeader();
+            CarregarDesenvolvedor();
 
             _usuarios.AddRange(_techLeader);
             _usuarios.AddRange(_desenvolvedor);
