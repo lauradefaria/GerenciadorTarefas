@@ -89,14 +89,14 @@ namespace AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness
             _id = GerarId();
         }
 
-        internal Tarefas(int id, string titulo, string descricao, DateTime dataInicio, TipoPrioridade prioridade, Usuario usuario, DateTime fim, TipoTamanho tamanho, StatusTarefa status, List<int> tarefasRelacionada = null)
+        internal Tarefas(int id, string titulo, string descricao, DateTime dataInicio, DateTime fim, TipoPrioridade prioridade, string usuarioCpf, TipoTamanho tamanho, StatusTarefa status, List<int> tarefasRelacionada = null)
         {
             _titulo = titulo;
             _descricao = descricao;
             _dataInicio = dataInicio;
             _dataFimPrevista = fim;
             _prioridade = prioridade;
-            _usuario = usuario;
+            _usuario = UsuariosData.SelecionarUsuario(usuarioCpf);
             _tarefasRelacionadas = tarefasRelacionada;
             _id = id;
             _status = status;

@@ -1,6 +1,7 @@
 ﻿using AdaTech.ProjetoIndividual.Controllers;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
 using AdaTech.ProjetoIndividual.Models.Data;
+using AdaTech.ProjetoIndividual.Views.Janelas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +31,7 @@ namespace AdaTech.ProjetoIndividual.Views
             int larguraTela = this.ClientSize.Width;
             int alturaTela = this.ClientSize.Height;
 
-            SelecionarInterface(_telaPrincipalController.FiltrarLogin(), InitializeComponent(larguraTela, alturaTela));
+            SelecionarInterface(_telaPrincipalController.FiltrarLogin(), InicializarComponente(larguraTela, alturaTela));
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
@@ -49,6 +50,36 @@ namespace AdaTech.ProjetoIndividual.Views
                     Application.Exit();
                 }
             }
+        }
+
+        private Panel InicializarComponente(int largura, int altura)
+        {
+            var painelLogin = new Panel();
+            painelLogin.Size = new Size(largura - 200, altura - 200);
+            painelLogin.Location = new Point((largura - painelLogin.Width) / 2, (altura - painelLogin.Height) / 2);
+            painelLogin.BackColor = Color.LightGray;
+            painelLogin.BorderStyle = BorderStyle.FixedSingle;
+            painelLogin.Anchor = AnchorStyles.None;
+            painelLogin.AutoScroll = true;
+
+            _lblBemVindo = new Label();
+            _lblBemVindo.Text = $"Bem-vindo, {_usuarioLogado.Nome}\nCargo: {_telaPrincipalController.FiltrarLogin()} ";
+            _lblBemVindo.BackColor = Color.Transparent;
+            _lblBemVindo.ForeColor = Color.Black;
+            _lblBemVindo.AutoSize = true;
+            _lblBemVindo.Font = new Font("Arial", 20, FontStyle.Bold);
+            _lblBemVindo.Location = new System.Drawing.Point((largura - painelLogin.Width) / 2, 20);
+
+            Button btnLogout = new Button();
+            btnLogout.Size = new Size(100, 30);
+            btnLogout.Location = new Point(painelLogin.Width + 100, painelLogin.Height + 100);
+            btnLogout.Text = "Logout";
+            btnLogout.Click += OnClickLogout;
+
+            Controls.Add(_lblBemVindo);
+            Controls.Add(btnLogout);
+
+            return painelLogin;
         }
 
         private void SelecionarInterface(string tipoUsuarioLogado, Panel painel)
@@ -268,8 +299,21 @@ namespace AdaTech.ProjetoIndividual.Views
         #region OnClick Em Comum
         private void OnClickVisualizarTarefas(object sender, EventArgs e)
         {
-            //JanelaVisualizar visualizar = new JanelaVisualizar();
-            //visualizar.ShowDialog();
+            using (MessageBoxCustomizada customMessageBox = new MessageBoxCustomizada("Escolha o tipo de tarefa que deseja visualizar:", "Ver Tarefas Ativas", "Ver Tarefas Desativadas"))
+            {
+                DialogResult result = customMessageBox.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    JanelaTarefasAtivas ativa = new JanelaTarefasAtivas();
+                    ativa.ShowDialog();;
+                }
+                else if (result == DialogResult.No)
+                {
+                    JanelaTarefasDesativadas desativada = new JanelaTarefasDesativadas();
+                    desativada.ShowDialog(); ;
+                }
+            }
         }
 
         private void OnClickCriarTarefas(object sender, EventArgs e)

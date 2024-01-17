@@ -1,16 +1,7 @@
-﻿using AdaTech.ProjetoIndividual.Controllers;
-using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
-
-namespace AdaTech.ProjetoIndividual.Views
+﻿namespace AdaTech.ProjetoIndividual.Views.Janelas
 {
-    partial class TelaPrincipal
+    partial class JanelaTarefasAtivas
     {
-        private bool _confirmacaoSaidaExibida = false;
-        private Label _lblBemVindo;
-        private Usuario _usuarioLogado;
-        private TelaPrincipalController _telaPrincipalController;
-        private Button _btnLogout;
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -40,7 +31,7 @@ namespace AdaTech.ProjetoIndividual.Views
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = "JanelaTarefasAtivas";
         }
 
         #endregion
