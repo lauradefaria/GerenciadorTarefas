@@ -16,6 +16,11 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         private static List<Usuario> _usuarios = new List<Usuario>();
         private static Usuario _usuarioLogin;
 
+        internal static Usuario UsuarioLogado()
+        {
+            return _usuarioLogin;
+        }
+
         internal static void SetUsuarioLogado(Usuario usuario)
         {
             foreach (Usuario usuarioLogin in _usuarios)
