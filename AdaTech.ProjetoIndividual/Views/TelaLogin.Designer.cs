@@ -49,13 +49,6 @@ namespace AdaTech.ProjetoIndividual
             painelLogin.AutoScroll = true;
 
 
-            cmbUsuario = new ComboBox();
-            cmbUsuario.Location = new Point(painelLogin.Width / 4, painelLogin.Height / 8);
-            cmbUsuario.Width = painelLogin.Width / 2;
-            cmbUsuario.Height = painelLogin.Height / 10;
-            cmbUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbUsuario.DataSource = new List<string> { "Administrador", "Tech Leader", "Desenvolvedor" };
-
             Label lblUsuarioDica = new Label();
             lblUsuarioDica.Text = "Usuário";
             lblUsuarioDica.AutoSize = true;
