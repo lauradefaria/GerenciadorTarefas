@@ -154,21 +154,21 @@ Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Adminis
 
 **GERAIS**
 - [X] Existem apenas dois vínculos: tech leader e desenvolvedores. <br/>
-- [ ] Para entrar no sistema, todos precisam de uma chave de acesso<br/><br/>
+- [X] Para entrar no sistema, todos precisam de uma chave de acesso<br/><br/>
 
 **TECH LEADER**
-- [ ] Podem ver as tarefas de todos<br/>
-- [ ] Podem criar tarefas<br/>
-- [ ] Podem assumir tarefas<br/>
+- [X] Podem ver as tarefas de todos<br/>
+- [X] Podem criar tarefas<br/>
+- [X] Podem assumir tarefas<br/>
 - [ ] Permitir acesso a estatísticas como: tarefas em atraso, tarefas concluídas, tarefas abandonadas, tarefas com impedimento, tarefas em análise (se foram mesmo concluídas ou se retornam - o tech leader que decide), e tarefas a serem aprovadas para inicio (tarefas que não foram feitas pelo tech leader e precisam de autorização para começar)<br/>
 - [ ] Colocar um responsável pela tarefa que não seja o criador dela, ou mudar o responsável pela tarefa (APENAS ELE) <br/>
 - [ ] Atualizar desenvolvedores por txt ou json
-- [ ] As tarefas podem ter relação quando fazem funções diferentes mas no mesmo local, como: criação da classe de produtos e criação do formulário de criação de produtos (mesmo que não tenham o mesmo responsável) <br/><br/>
+- [X] As tarefas podem ter relação quando fazem funções diferentes mas no mesmo local, como: criação da classe de produtos e criação do formulário de criação de produtos (mesmo que não tenham o mesmo responsável) <br/><br/>
 
 **DESENVOLVEDORES**
-- [ ] Podem criar tarefas (e automaticamente são os responsáveis por ela), otempo da tarefa fica em aberto a ser definido pelo tech leader<br/>
-- [ ]  Os desenvolvedores veem apenas suas tarefas ou tarefas que tenham relação com a sua<br/>
-- [ ]   A tarefa só pode ser iniciada com a autorização do tech leader<br/>
+- [X] Podem criar tarefas (e automaticamente são os responsáveis por ela), otempo da tarefa fica em aberto a ser definido pelo tech leader<br/>
+- [ ] Os desenvolvedores veem apenas suas tarefas ou tarefas que tenham relação com a sua<br/>
+- [X] A tarefa só pode ser iniciada com a autorização do tech leader<br/>
 
 ---
 
