@@ -59,16 +59,20 @@ namespace AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness
         }
 
 
-        internal Tarefas(string titulo, string descricao, DateTime dataInicio, TipoPrioridade prioridade, Usuario usuario, DateTime fim, TipoTamanho tamanho, TipoUsuario tipo, List<int> tarefasRelacionada = null)
+        internal Tarefas(string titulo, string descricao, DateTime dataInicio, TipoPrioridade prioridade, Usuario usuario, DateTime dataFim, TipoTamanho tamanho, TipoUsuario tipo, List<int> tarefasRelacionada = null)
         {
             _titulo = titulo;
             _descricao = descricao;
             _dataInicio = dataInicio;
-            _dataFimPrevista = fim;
             _prioridade = prioridade;
             _usuario = usuario;
             _tamanho = tamanho;
             _tarefasRelacionadas = tarefasRelacionada;
+
+            if (dataInicio == dataFim)
+            {
+                _dataFimPrevista = new DateTime(dataFim.Year, dataFim.Month, dataFim.Day, 23, 59, 0);
+            }
 
             if (tipo == TipoUsuario.Desenvolvedor)
             {
@@ -76,7 +80,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness
             }
             else
             {
-                if (fim >= DateTime.Now)
+                if (dataFim > DateTime.Now)
                 {
                     _status = StatusTarefa.EmAndamento;
                 }

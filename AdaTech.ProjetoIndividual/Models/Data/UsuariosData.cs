@@ -49,7 +49,29 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         }
         internal static List<Usuario> ListarUsuariosAtivos()
         {
-            return _usuarios.Where(u => u.Ativo == true).ToList();
+            if(_usuarios.Count <= 0)
+            {
+                MessageBox.Show("Sem usuários ativos no sistema");
+            }
+            else
+            {
+                List<Usuario> lista = new List<Usuario>();
+
+                foreach(Usuario u in _usuarios)
+                {
+                    if (u.Ativo == true)
+                    { 
+                        if (u.TipoUsuario == TipoUsuario.Desenvolvedor || u.TipoUsuario == TipoUsuario.TechLeader)
+                        {
+                            lista.Add(u);
+                        }
+                    }
+                }
+
+                return lista;
+            }
+
+            return _usuarios;
         }
         internal static List<Administrador> ListarAdministrador()
         {

@@ -318,8 +318,8 @@ namespace AdaTech.ProjetoIndividual.Views
 
         private void OnClickCriarTarefas(object sender, EventArgs e)
         {
-            //JanelaCriarTarefas criar = new JanelaCriarTarefas();
-            //criar.ShowDialog();
+            JanelaCriarTarefas criar = new JanelaCriarTarefas(_usuarioLogado);
+            criar.ShowDialog();
         }
         private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
         {
