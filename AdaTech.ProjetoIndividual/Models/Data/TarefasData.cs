@@ -15,7 +15,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
 
         internal static void CarregarTarefas()
         {
-            //_tarefas.Add(new Tarefas("PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, 2024 - 05 - 30, "Media", "11122233344", "7", "EmAndamento", "6"));
+            _tarefas.Add(new Tarefas(6, "PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, DateTime.Now.AddDays(7), TipoPrioridade.Media, "4455667788", TipoTamanho.M, StatusTarefa.EmAndamento, null));
         }
 
         internal static List<Tarefas> ListarTarefas()
