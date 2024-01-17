@@ -166,11 +166,23 @@ namespace AdaTech.ProjetoIndividual.Views
 
             #endregion
 
+            #region Botão AdicionarDesenvolvedor
+
+            Button bntAdicionarDesenvolvedor = new Button();
+            bntAdicionarDesenvolvedor.Size = new Size(160, 30);
+            bntAdicionarDesenvolvedor.Location = new Point(20, 250);
+            bntAdicionarDesenvolvedor.Anchor = AnchorStyles.Right;
+            bntAdicionarDesenvolvedor.Text = "Adicionar Desenvolvedor";
+            bntAdicionarDesenvolvedor.Click += OnClickAdicionarDesenvolvedor;
+
+            #endregion
+
             painelTechLeader.Controls.Add(bntVisualizarTarefas);
             painelTechLeader.Controls.Add(bntCriarTarefas);
             painelTechLeader.Controls.Add(bntAlterarStatus);
             painelTechLeader.Controls.Add(bntAlterarResponsavel);
             painelTechLeader.Controls.Add(bntEstatistica);
+            painelTechLeader.Controls.Add(bntAdicionarDesenvolvedor);
             return painelTechLeader;
         }
         #endregion
@@ -199,7 +211,57 @@ namespace AdaTech.ProjetoIndividual.Views
         private Panel CriarPainelAdm(Panel painelAdm)
         {
             painelAdm.Controls.Clear();
+
+            #region Botão AdicionarDesenvolvedor
+
+            Button bntAdicionarDesenvolvedor = new Button();
+            bntAdicionarDesenvolvedor.Size = new Size(160, 30);
+            bntAdicionarDesenvolvedor.Location = new Point(20, 50);
+            bntAdicionarDesenvolvedor.Anchor = AnchorStyles.Right;
+            bntAdicionarDesenvolvedor.Text = "Adicionar Desenvolvedor";
+            bntAdicionarDesenvolvedor.Click += OnClickAdicionarDesenvolvedor;
+
+            #endregion
+
+            #region Botão AdicionarTech
+
+            Button bntAdicionarTech = new Button();
+            bntAdicionarTech.Size = new Size(160, 30);
+            bntAdicionarTech.Location = new Point(20, 90);
+            bntAdicionarTech.Anchor = AnchorStyles.Right;
+            bntAdicionarTech.Text = "Adicionar Tech Leader";
+            bntAdicionarTech.Click += OnClickAdicionarTech;
+
+            #endregion
+
+            #region Botão RemoverUsuario
+
+            Button bntRemoverUsuario = new Button();
+            bntRemoverUsuario.Size = new Size(160, 30);
+            bntRemoverUsuario.Location = new Point(20, 130);
+            bntRemoverUsuario.Anchor = AnchorStyles.Right;
+            bntRemoverUsuario.Text = "Remover Usuario";
+            bntAdicionarTech.Click += OnClickRemoverUsuario;
+
+            #endregion
+
+            painelAdm.Controls.Add(bntAdicionarDesenvolvedor);
+            painelAdm.Controls.Add(bntAdicionarTech);
+            painelAdm.Controls.Add(bntRemoverUsuario);
             return painelAdm;
+        }
+        #endregion
+
+        #region OnClick Adm
+        private void OnClickAdicionarTech(object sender, EventArgs e)
+        {
+            //JanelaAdicionarTech tech = new JanelaAdicionarTech();
+            //tech.ShowDialog();
+        }
+        private void OnClickRemoverUsuario(object sender, EventArgs e)
+        {
+            //JanelaRemoverUsuario user = new JanelaRemoverUsuario();
+            //user.ShowDialog();
         }
         #endregion
 
@@ -214,6 +276,11 @@ namespace AdaTech.ProjetoIndividual.Views
         {
             //JanelaCriarTarefas criar = new JanelaCriarTarefas();
             //criar.ShowDialog();
+        }
+        private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
+        {
+            //JanelaAdicionarDev dev = new JanelaAdicionarDev();
+            //dev.ShowDialog();
         }
         #endregion
 
