@@ -9,16 +9,7 @@ namespace AdaTech.ProjetoIndividual.Views
         private Label _lblBemVindo;
         private Usuario _usuarioLogado;
         private TelaPrincipalController _telaPrincipalController;
-        private Panel _painelTelaPrincipal;
         private Button _btnLogout;
-        private Button btnVisualizarTarefas;
-        private Button btnCriarTarefa;
-        private Button btnVisualizarUsuarios;
-        private Button btnAlterarSenha;
-        private Button btnCadastrarDev;
-        private Button btnAdicionarProjeto;
-        private Button btnVisualizarProjeto;
-        private Button btnCadastrarTechLeader;
 
         private System.ComponentModel.IContainer components = null;
 
@@ -31,22 +22,17 @@ namespace AdaTech.ProjetoIndividual.Views
             base.Dispose(disposing);
         }
 
-        private void InitializeComponent()
+        private Panel InitializeComponent(int largura, int altura)
         {
             this.components = new System.ComponentModel.Container();
 
-            WindowState = FormWindowState.Maximized;
-            int largura = this.ClientSize.Width;
-            int altura = this.ClientSize.Height;
-            this.Text = "Tela Principal";
-
-            _painelTelaPrincipal = new Panel();
-            _painelTelaPrincipal.Size = new Size(largura - 200, altura - 200);
-            _painelTelaPrincipal.Location = new Point((largura - _painelTelaPrincipal.Width) / 2, (altura - _painelTelaPrincipal.Height) / 2);
-            _painelTelaPrincipal.BackColor = Color.LightGray;
-            _painelTelaPrincipal.BorderStyle = BorderStyle.FixedSingle;
-            _painelTelaPrincipal.Anchor = AnchorStyles.None;
-            _painelTelaPrincipal.AutoScroll = true;
+            var painelLogin = new Panel();
+            painelLogin.Size = new Size(largura - 200, altura - 200);
+            painelLogin.Location = new Point((largura - painelLogin.Width) / 2, (altura - painelLogin.Height) / 2);
+            painelLogin.BackColor = Color.LightGray;
+            painelLogin.BorderStyle = BorderStyle.FixedSingle;
+            painelLogin.Anchor = AnchorStyles.None;
+            painelLogin.AutoScroll = true;
 
             _lblBemVindo = new Label();
             _lblBemVindo.Text = $"Bem-vindo, {_usuarioLogado.Nome}\nCargo: {_telaPrincipalController.FiltrarLogin()} ";
@@ -54,16 +40,18 @@ namespace AdaTech.ProjetoIndividual.Views
             _lblBemVindo.ForeColor = Color.Black;
             _lblBemVindo.AutoSize = true;
             _lblBemVindo.Font = new Font("Arial", 20, FontStyle.Bold);
-            _lblBemVindo.Location = new System.Drawing.Point((largura - _painelTelaPrincipal.Width) / 2, 20);
+            _lblBemVindo.Location = new System.Drawing.Point((largura - painelLogin.Width) / 2, 20);
 
-            _btnLogout = new Button();
-            _btnLogout.Size = new Size(100, 30);
-            _btnLogout.Location = new Point(_painelTelaPrincipal.Width + 100, _painelTelaPrincipal.Height + 100);
-            _btnLogout.Text = "Logout";
-            _btnLogout.Click += OnClickLogout;
-            
+            Button btnLogout = new Button();
+            btnLogout.Size = new Size(100, 30);
+            btnLogout.Location = new Point(painelLogin.Width + 100, painelLogin.Height + 100);
+            btnLogout.Text = "Logout";
+            btnLogout.Click += OnClickLogout;
+
             Controls.Add(_lblBemVindo);
-            Controls.Add(_btnLogout);
+            Controls.Add(btnLogout);
+
+            return painelLogin;
         }
     }
 }
