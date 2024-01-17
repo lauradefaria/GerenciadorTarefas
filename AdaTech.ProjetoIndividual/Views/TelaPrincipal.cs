@@ -72,6 +72,7 @@ namespace AdaTech.ProjetoIndividual.Views
                 Controls.Add(painel);
             }
         }
+
         #region Painel Desenvolvedor
         private Panel CriarPainelDesenvolvedor(Panel painelDesenvolvedor)
         {
