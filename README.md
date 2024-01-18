@@ -166,9 +166,9 @@ Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Adminis
 - [X] As tarefas podem ter relação quando fazem funções diferentes mas no mesmo local, como: criação da classe de produtos e criação do formulário de criação de produtos (mesmo que não tenham o mesmo responsável) <br/><br/>
 
 **DESENVOLVEDORES**
-- [X] Podem criar tarefas (e automaticamente são os responsáveis por ela), otempo da tarefa fica em aberto a ser definido pelo tech leader<br/>
+- [X] Podem criar tarefas (e automaticamente são os responsáveis por ela), o tempo da tarefa fica em aberto a ser definido pelo tech leader<br/>
 - [X] Os desenvolvedores veem apenas suas tarefas ou tarefas que tenham relação com a sua<br/>
-- [X] A tarefa só pode ser iniciada com a autorização do tech leader<br/>
+- [ ] A tarefa só pode ser iniciada com a autorização do tech leader<br/>
 
 ---
 
