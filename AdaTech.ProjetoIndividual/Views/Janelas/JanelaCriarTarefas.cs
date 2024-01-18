@@ -89,7 +89,6 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas
                 List<int> idTarefasRelacionadas = ObterIdsTarefasRelacionadas();
                 if (TarefasData.AdicionarTarefa(titulo, descricao, dataInicio, prioridade, usuarioResponsavel, dataFim, tamanho, usuarioResponsavel.TipoUsuario, idTarefasRelacionadas))
                 {
-                    MessageBox.Show($"{idTarefasRelacionadas[0]}");
                     lblMensagem.Text = "Tarefa cadastrada com sucesso!";
                     lblMensagem.ForeColor = System.Drawing.Color.Green;
                 }

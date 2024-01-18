@@ -2,6 +2,7 @@
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
 using AdaTech.ProjetoIndividual.Models.Data;
 using AdaTech.ProjetoIndividual.Views.Janelas;
+using AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -131,8 +132,20 @@ namespace AdaTech.ProjetoIndividual.Views
 
             #endregion
 
+            #region Botão AlterarStatus
+
+            Button bntAlterarStatus = new Button();
+            bntAlterarStatus.Size = new Size(160, 30);
+            bntAlterarStatus.Location = new Point(20, 130);
+            bntAlterarStatus.Anchor = AnchorStyles.Right;
+            bntAlterarStatus.Text = "Alterar Status";
+            bntAlterarStatus.Click += OnClickAlterarStatus;
+
+            #endregion
+
             painelDesenvolvedor.Controls.Add(bntVisualizarTarefas);
             painelDesenvolvedor.Controls.Add(bntCriarTarefas);
+            painelDesenvolvedor.Controls.Add(bntAlterarStatus);
             return painelDesenvolvedor;
         }
         #endregion
@@ -220,15 +233,10 @@ namespace AdaTech.ProjetoIndividual.Views
 
         #region OnClick Tech Leader
 
-        private void OnClickAlterarStatus(object sender, EventArgs e)
-        {
-            //JanelaAlterarStatus status = new JanelaAlterarStatus();
-            //status.ShowDialog();
-        }
         private void OnClickAlterarResponsavel(object sender, EventArgs e)
         {
-            //JanelaAlterarResponsavel responsavel = new JanelaAlterarResponsavel();
-            //responsavel.ShowDialog();
+            JanelaAlterarResponsavel responsavel = new JanelaAlterarResponsavel();
+            responsavel.ShowDialog();
         }
         private void OnClickEstatistica(object sender, EventArgs e)
         {
@@ -325,6 +333,11 @@ namespace AdaTech.ProjetoIndividual.Views
         {
             //JanelaAdicionarDev dev = new JanelaAdicionarDev();
             //dev.ShowDialog();
+        }
+        private void OnClickAlterarStatus(object sender, EventArgs e)
+        {
+            JanelaAlterarStatus status = new JanelaAlterarStatus();
+            status.ShowDialog();
         }
         #endregion
 

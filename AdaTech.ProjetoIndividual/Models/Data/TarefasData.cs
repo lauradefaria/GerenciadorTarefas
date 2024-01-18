@@ -62,6 +62,17 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 return false;
             }
         }
+        internal static Tarefas SelecionarTarefa(int idTarefa)
+        {
+            foreach (Tarefas tarefa in _tarefas)
+            {
+                if (tarefa.Id == idTarefa)
+                {
+                    return tarefa;
+                }
+            }
+            return null;
+        }
         internal static void ExcluirTarefa(Tarefas tarefa)
         {
             Tarefas tarefaExc = _tarefas.FirstOrDefault(t => t.Id == tarefa.Id);
@@ -70,6 +81,25 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             {
                 _tarefas.Remove(tarefaExc);
             }
+        }
+
+        internal static bool AlterarResponsavel(Tarefas tarefaEscolhida, Usuario novoResponsavel)
+        {
+            int contador = 0;
+            bool flag = false;
+
+            foreach (Tarefas tarefa in _tarefas)
+            {
+                if(tarefa.Id == tarefaEscolhida.Id)
+                {
+                    _tarefas[contador].Responsavel = novoResponsavel;
+                    flag = true;
+                    break;
+                }
+                contador++;
+            }
+
+            return flag;
         }
     }
 }

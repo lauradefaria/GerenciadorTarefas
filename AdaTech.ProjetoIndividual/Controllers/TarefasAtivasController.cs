@@ -28,7 +28,7 @@ namespace AdaTech.ProjetoIndividual.Controllers
 
             foreach (Tarefas tarefa in listaTarefas)
             {
-                string infoTarefa = $"{tarefa.Titulo} - Prioridade {tarefa.Prioridade} - Data Início: {tarefa.DataInicio.ToShortDateString()} - {tarefa.Status} - Id tarefa: {tarefa.Id}";
+                string infoTarefa = $"{tarefa.Titulo} - Prioridade {tarefa.Prioridade} - Data Início: {tarefa.DataInicio.ToShortDateString()} - {tarefa.Status} - Responsável: {tarefa.NomeResponsavel} - Id tarefa: {tarefa.Id}";
 
                 if(usuario.TipoUsuario == TipoUsuario.Desenvolvedor && tarefa.Responsavel.Cpf == usuario.Cpf)
                 {
