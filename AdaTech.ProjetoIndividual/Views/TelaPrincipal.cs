@@ -240,8 +240,8 @@ namespace AdaTech.ProjetoIndividual.Views
         }
         private void OnClickEstatistica(object sender, EventArgs e)
         {
-            //JanelaEstatistica estatistica = new JanelaEstatistica();
-            //estatistica.ShowDialog();
+            JanelaEstatisticas estatistica = new JanelaEstatisticas();
+            estatistica.ShowDialog();
         }
 
         #endregion
