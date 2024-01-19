@@ -49,7 +49,6 @@ namespace AdaTech.ProjetoIndividual.Controllers
                         _form.QuantPendente++;
                         break;
                     case StatusTarefa.EmAndamento:
-                        MessageBox.Show("Entrou");
                         _form.QuantEmAndamento++;
                         break;
                     case StatusTarefa.Impedimento:

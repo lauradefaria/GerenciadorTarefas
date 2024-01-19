@@ -7,7 +7,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
     {
         private ComboBox cmbTarefas;
         private ComboBox cmbStatus;
-        private Button btnAlterarResponsavel;
+        private Button btnAlterarStatus;
         private Label lblMensagem;
         private Usuario usuarioLogado;
         private System.ComponentModel.IContainer components = null;
@@ -49,16 +49,16 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
             Controls.Add(cmbStatus);
 
             Label lblStatus = new Label();
-            lblStatus.Text = "Staus:";
+            lblStatus.Text = "Status:";
             lblStatus.Location = new System.Drawing.Point(330, 60);
             lblStatus.AutoSize = true;
             Controls.Add(lblStatus);
 
-            btnAlterarResponsavel = new Button();
-            btnAlterarResponsavel.Text = "Alterar Status";
-            btnAlterarResponsavel.Location = new System.Drawing.Point(20, 480);
-            btnAlterarResponsavel.Click += (sender, e) => btnAlterarStatusClick?.Invoke(sender, e);
-            Controls.Add(btnAlterarResponsavel);
+            btnAlterarStatus = new Button();
+            btnAlterarStatus.Text = "Alterar Status";
+            btnAlterarStatus.Location = new System.Drawing.Point(20, 480);
+            btnAlterarStatus.Click += (sender, e) => btnAlterarStatusClick?.Invoke(sender, e);
+            Controls.Add(btnAlterarStatus);
 
             lblMensagem = new Label();
             lblMensagem.Location = new System.Drawing.Point(20, 520);
