@@ -56,6 +56,7 @@ namespace AdaTech.ProjetoIndividual.Controllers
             {
                 lista = tarefas;
             }
+
             if(tarefas == null)
             {
                 _alterarStatus.MostrarMensagem("O usuário não possui nenhuma tarefa ativa para alterar",'r');
