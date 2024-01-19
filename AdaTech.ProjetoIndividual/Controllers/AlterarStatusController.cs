@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AdaTech.ProjetoIndividual.Controllers
 {
@@ -39,8 +40,27 @@ namespace AdaTech.ProjetoIndividual.Controllers
         {
             TarefasData.ConferirAtraso();
             List<Tarefas> tarefas = TarefasData.ListarTarefasAtivas();
+            List<Tarefas> lista = new List<Tarefas>();
 
-            _alterarStatus.CmbTarefas.DataSource = tarefas;
+            if(UsuariosData.UsuarioLogado().TipoUsuario == TipoUsuario.Desenvolvedor)
+            {
+                foreach(Tarefas tarefa in tarefas)
+                {
+                    if(tarefa.Responsavel.Cpf == UsuariosData.UsuarioLogado().Cpf)
+                    {
+                        lista.Add(tarefa);
+                    }
+                }
+            }
+            else
+            {
+                lista = tarefas;
+            }
+            if(tarefas == null)
+            {
+                _alterarStatus.MostrarMensagem("O usuário não possui nenhuma tarefa ativa para alterar",'r');
+            }
+            _alterarStatus.CmbTarefas.DataSource = lista;
             _alterarStatus.CmbTarefas.DisplayMember = "NomeEstilo";
         }
 
@@ -71,7 +91,7 @@ namespace AdaTech.ProjetoIndividual.Controllers
             }
             else
             {
-                _alterarStatus.MostrarMensagem("Preencha todos os campos necessários", 'r');
+                _alterarStatus.MostrarMensagem("Erro ao alterar a tarefa.Verifique os campos", 'r');
             }
         }
 

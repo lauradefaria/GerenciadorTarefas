@@ -34,7 +34,7 @@ namespace AdaTech.ProjetoIndividual
 
         private void OnClickEntrar(object sender, EventArgs e)
         {
-            string usuarioDigitado = txtUsuario.Text = "4455667788";
+            string usuarioDigitado = txtUsuario.Text = "0123456789";
             string senhaDigitada = txtSenha.Text;
 
             if (_telaInicialController.RealizarLogin())
