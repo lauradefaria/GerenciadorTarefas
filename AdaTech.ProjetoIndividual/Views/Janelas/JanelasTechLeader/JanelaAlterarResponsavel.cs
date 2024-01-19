@@ -34,7 +34,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
 
         private void CarregarTarefas()
         {
-            List<Tarefas> tarefas = TarefasData.ListarTarefas();
+            List<Tarefas> tarefas = TarefasData.ListarTarefasAtivas();
             cmbTarefas.DataSource = tarefas;
             cmbTarefas.DisplayMember = "NomeEstilo";
         }

@@ -1,16 +1,17 @@
-﻿namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
+﻿using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
+using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
+
+namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
 {
     partial class JanelaAlterarStatus
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        private ComboBox cmbTarefas;
+        private ComboBox cmbStatus;
+        private Button btnAlterarResponsavel;
+        private Label lblMensagem;
+        private Usuario usuarioLogado;
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,16 +23,47 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "JanelaAlterarStatus";
+            this.Text = "Janela Alterar Responsavel";
+
+            cmbTarefas = new ComboBox();
+            cmbTarefas.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTarefas.Location = new System.Drawing.Point(20, 20);
+            cmbTarefas.Size = new System.Drawing.Size(300, 25);
+            Controls.Add(cmbTarefas);
+
+            Label lblTarefas = new Label();
+            lblTarefas.Text = "Tarefa:";
+            lblTarefas.Location = new System.Drawing.Point(330, 20);
+            lblTarefas.AutoSize = true;
+            Controls.Add(lblTarefas);
+
+            cmbStatus = new ComboBox();
+            cmbStatus.Location = new System.Drawing.Point(20, 60);
+            cmbStatus.Size = new System.Drawing.Size(300, 25);
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            Controls.Add(cmbStatus);
+
+            Label lblStatus = new Label();
+            lblStatus.Text = "Staus:";
+            lblStatus.Location = new System.Drawing.Point(330, 60);
+            lblStatus.AutoSize = true;
+            Controls.Add(lblStatus);
+
+            btnAlterarResponsavel = new Button();
+            btnAlterarResponsavel.Text = "Alterar Status";
+            btnAlterarResponsavel.Location = new System.Drawing.Point(20, 480);
+            btnAlterarResponsavel.Click += (sender, e) => btnAlterarStatusClick?.Invoke(sender, e);
+            Controls.Add(btnAlterarResponsavel);
+
+            lblMensagem = new Label();
+            lblMensagem.Location = new System.Drawing.Point(20, 520);
+            lblMensagem.AutoSize = true;
+            Controls.Add(lblMensagem);
         }
 
         #endregion

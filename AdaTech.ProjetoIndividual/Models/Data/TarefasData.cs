@@ -22,6 +22,34 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             return _tarefas;
         }
+        internal static List<Tarefas> ListarTarefasAtivas()
+        {
+            List<Tarefas> lista = new List<Tarefas>();
+
+            foreach(Tarefas tarefa in _tarefas)
+            {
+                if(tarefa.Status == StatusTarefa.EmAndamento || tarefa.Status == StatusTarefa.Impedimento || tarefa.Status == StatusTarefa.Atrasada)
+                {
+                    lista.Add(tarefa);
+                }
+            }
+
+            return lista;
+        }
+
+        internal static void ConferirAtraso()
+        {
+            int contador = 0;
+
+            foreach(Tarefas tarefa in _tarefas)
+            {
+                if(DateTime.Compare(DateTime.Now, tarefa.DataFimPrevista) >= 0 && tarefa.Status == StatusTarefa.EmAndamento)
+                {
+                    _tarefas[contador].Status = StatusTarefa.Atrasada;
+                }
+                contador++;
+            }
+        }
 
         internal static bool VerificarId(int id)
         {
@@ -93,6 +121,25 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 if(tarefa.Id == tarefaEscolhida.Id)
                 {
                     _tarefas[contador].Responsavel = novoResponsavel;
+                    flag = true;
+                    break;
+                }
+                contador++;
+            }
+
+            return flag;
+        }
+
+        internal static bool AlterarStatus(Tarefas tarefaEscolhida, StatusTarefa novoStatus)
+        {
+            int contador = 0;
+            bool flag = false;
+
+            foreach (Tarefas tarefa in _tarefas)
+            {
+                if (tarefa.Id == tarefaEscolhida.Id)
+                {
+                    _tarefas[contador].Status = novoStatus;
                     flag = true;
                     break;
                 }
