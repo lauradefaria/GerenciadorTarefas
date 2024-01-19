@@ -28,7 +28,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Janela Alterar Responsavel";
+            this.Text = "Janela Alterar Status";
 
             cmbTarefas = new ComboBox();
             cmbTarefas.DropDownStyle = ComboBoxStyle.DropDownList;
