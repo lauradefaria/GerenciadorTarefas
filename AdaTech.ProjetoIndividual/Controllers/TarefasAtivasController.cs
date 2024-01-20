@@ -23,6 +23,7 @@ namespace AdaTech.ProjetoIndividual.Controllers
 
         public void ExibirTarefas()
         {
+            TarefasData.ConferirAtraso();
             List<Tarefas> listaTarefas = TarefasData.ListarTarefas();
             Usuario usuario = UsuariosData.UsuarioLogado();
 

@@ -25,6 +25,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
 
             AlterarStatusController controller = new AlterarStatusController(this);
 
+            TarefasData.ConferirAtraso();
             controller.CarregarStatus();
             controller.CarregarTarefas();
 

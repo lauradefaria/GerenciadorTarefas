@@ -1,4 +1,5 @@
 ﻿using AdaTech.ProjetoIndividual.Controllers;
+using AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
 using AdaTech.ProjetoIndividual.Models.Data;
@@ -155,6 +156,13 @@ namespace AdaTech.ProjetoIndividual.Views
         private Panel CriarPainelTechLeader(Panel painelTechLeader)
         {
             painelTechLeader.Controls.Clear();
+            List<Tarefas> tarefasPendentes = TarefasData.ListarTarefasPorStatus(StatusTarefa.Pendente);
+            List<Tarefas> tarefasAnalise = TarefasData.ListarTarefasPorStatus(StatusTarefa.Analise);
+            
+            if (tarefasAnalise.Count > 0 || tarefasPendentes.Count>0)
+            {
+                MessageBox.Show($"Existem {tarefasAnalise.Count} tarefas em análise aguardando aprovação\nExistem {tarefasPendentes.Count} tarefas pendentes aguardando aprovação");
+            }
 
             #region Botão VizualizarTarefas
 
