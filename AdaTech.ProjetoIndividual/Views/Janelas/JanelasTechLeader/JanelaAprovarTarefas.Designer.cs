@@ -1,13 +1,13 @@
 ﻿using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
-using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
 
 namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
 {
-    partial class JanelaAlterarStatus
+    partial class JanelaAprovarTarefas
     {
         private ComboBox cmbTarefas;
         private ComboBox cmbStatus;
-        private Button btnAlterarStatus;
+        private Button btnAprovar;
+        private Button btnRecusar;
         private Label lblMensagem;
         private Usuario usuarioLogado;
         private System.ComponentModel.IContainer components = null;
@@ -28,7 +28,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Janela Alterar Status";
+            this.Text = "Janela Aprovar Tarefas";
 
             cmbTarefas = new ComboBox();
             cmbTarefas.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -42,23 +42,17 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
             lblTarefas.AutoSize = true;
             Controls.Add(lblTarefas);
 
-            cmbStatus = new ComboBox();
-            cmbStatus.Location = new System.Drawing.Point(20, 60);
-            cmbStatus.Size = new System.Drawing.Size(300, 25);
-            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            Controls.Add(cmbStatus);
+            btnAprovar = new Button();
+            btnAprovar.Text = "Aprovar";
+            btnAprovar.Location = new System.Drawing.Point(20, 480);
+            btnAprovar.Click += (sender, e) => btnAprovarClick?.Invoke(sender, e);
+            Controls.Add(btnAprovar);
 
-            Label lblStatus = new Label();
-            lblStatus.Text = "Status:";
-            lblStatus.Location = new System.Drawing.Point(330, 60);
-            lblStatus.AutoSize = true;
-            Controls.Add(lblStatus);
-
-            btnAlterarStatus = new Button();
-            btnAlterarStatus.Text = "Alterar Status";
-            btnAlterarStatus.Location = new System.Drawing.Point(20, 480);
-            btnAlterarStatus.Click += (sender, e) => btnAlterarStatusClick?.Invoke(sender, e);
-            Controls.Add(btnAlterarStatus);
+            btnRecusar = new Button();
+            btnRecusar.Text = "Aprovar";
+            btnRecusar.Location = new System.Drawing.Point(70, 480);
+            btnRecusar.Click += (sender, e) => btnReprovarClick?.Invoke(sender, e);
+            Controls.Add(btnRecusar);
 
             lblMensagem = new Label();
             lblMensagem.Location = new System.Drawing.Point(20, 520);

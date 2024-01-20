@@ -37,6 +37,21 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             return lista;
         }
 
+        internal static  List<Tarefas> ListarTarefasPorStatus(StatusTarefa status)
+        {
+            List<Tarefas> lista = new List<Tarefas>();
+
+            foreach (Tarefas tarefa in _tarefas)
+            {
+                if (tarefa.Status == status )
+                {
+                    lista.Add(tarefa);
+                }
+            }
+
+            return lista;
+        }
+
         internal static void ConferirAtraso()
         {
             int contador = 0;

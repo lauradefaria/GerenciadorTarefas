@@ -1,5 +1,6 @@
 ﻿using AdaTech.ProjetoIndividual.Controllers;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
+using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
 using AdaTech.ProjetoIndividual.Models.Data;
 using AdaTech.ProjetoIndividual.Views.Janelas;
 using AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader;
@@ -210,14 +211,14 @@ namespace AdaTech.ProjetoIndividual.Views
 
             #endregion
 
-            #region Botão AdicionarDesenvolvedor
+            #region Botão Aprovar Tarefa
 
-            Button bntAdicionarDesenvolvedor = new Button();
-            bntAdicionarDesenvolvedor.Size = new Size(160, 30);
-            bntAdicionarDesenvolvedor.Location = new Point(20, 250);
-            bntAdicionarDesenvolvedor.Anchor = AnchorStyles.Right;
-            bntAdicionarDesenvolvedor.Text = "Adicionar Desenvolvedor";
-            bntAdicionarDesenvolvedor.Click += OnClickAdicionarDesenvolvedor;
+            Button bntAprovar = new Button();
+            bntAprovar.Size = new Size(160, 30);
+            bntAprovar.Location = new Point(20, 250);
+            bntAprovar.Anchor = AnchorStyles.Right;
+            bntAprovar.Text = "Aprovar Tarefa";
+            bntAprovar.Click += OnClickAprovarTarefa;
 
             #endregion
 
@@ -226,7 +227,7 @@ namespace AdaTech.ProjetoIndividual.Views
             painelTechLeader.Controls.Add(bntAlterarStatus);
             painelTechLeader.Controls.Add(bntAlterarResponsavel);
             painelTechLeader.Controls.Add(bntEstatistica);
-            painelTechLeader.Controls.Add(bntAdicionarDesenvolvedor);
+            painelTechLeader.Controls.Add(bntAprovar);
             return painelTechLeader;
         }
         #endregion
@@ -242,6 +243,25 @@ namespace AdaTech.ProjetoIndividual.Views
         {
             JanelaEstatisticas estatistica = new JanelaEstatisticas();
             estatistica.ShowDialog();
+        }
+
+        private void OnClickAprovarTarefa(object sender, EventArgs e)
+        {
+            using (MessageBoxCustomizada customMessageBox = new MessageBoxCustomizada("Escolha o status da tarefa que deseja aprovar:", "Ver Tarefas Pendentes", "Ver Tarefas Em Análise"))
+            {
+                DialogResult result = customMessageBox.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    JanelaAprovarTarefas pendente = new JanelaAprovarTarefas(StatusTarefa.Pendente);
+                    pendente.ShowDialog(); ;
+                }
+                else if (result == DialogResult.No)
+                {
+                    JanelaAprovarTarefas analise = new JanelaAprovarTarefas(StatusTarefa.Analise);
+                    analise.ShowDialog(); ;
+                }
+            }
         }
 
         #endregion
@@ -302,6 +322,11 @@ namespace AdaTech.ProjetoIndividual.Views
             //JanelaRemoverUsuario user = new JanelaRemoverUsuario();
             //user.ShowDialog();
         }
+        private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
+        {
+            //JanelaAdicionarDev dev = new JanelaAdicionarDev();
+            //dev.ShowDialog();
+        }
         #endregion
 
         #region OnClick Em Comum
@@ -329,11 +354,7 @@ namespace AdaTech.ProjetoIndividual.Views
             JanelaCriarTarefas criar = new JanelaCriarTarefas(_usuarioLogado);
             criar.ShowDialog();
         }
-        private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
-        {
-            //JanelaAdicionarDev dev = new JanelaAdicionarDev();
-            //dev.ShowDialog();
-        }
+        
         private void OnClickAlterarStatus(object sender, EventArgs e)
         {
             JanelaAlterarStatus status = new JanelaAlterarStatus();
