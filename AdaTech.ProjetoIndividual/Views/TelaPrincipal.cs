@@ -1,5 +1,6 @@
 ﻿using AdaTech.ProjetoIndividual.Controllers;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
+using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
 using AdaTech.ProjetoIndividual.Models.Data;
 using AdaTech.ProjetoIndividual.Views.Janelas;
 using AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader;
@@ -210,11 +211,22 @@ namespace AdaTech.ProjetoIndividual.Views
 
             #endregion
 
+            #region Botão Aprovar Tarefa
+
+            Button bntAprovar = new Button();
+            bntAprovar.Size = new Size(160, 30);
+            bntAprovar.Location = new Point(20, 250);
+            bntAprovar.Anchor = AnchorStyles.Right;
+            bntAprovar.Text = "Aprovar Tarefa";
+            bntAprovar.Click += OnClickAprovarTarefa;
+
+            #endregion
+
             #region Botão AdicionarDesenvolvedor
 
             Button bntAdicionarDesenvolvedor = new Button();
             bntAdicionarDesenvolvedor.Size = new Size(160, 30);
-            bntAdicionarDesenvolvedor.Location = new Point(20, 250);
+            bntAdicionarDesenvolvedor.Location = new Point(20, 290);
             bntAdicionarDesenvolvedor.Anchor = AnchorStyles.Right;
             bntAdicionarDesenvolvedor.Text = "Adicionar Desenvolvedor";
             bntAdicionarDesenvolvedor.Click += OnClickAdicionarDesenvolvedor;
@@ -226,6 +238,7 @@ namespace AdaTech.ProjetoIndividual.Views
             painelTechLeader.Controls.Add(bntAlterarStatus);
             painelTechLeader.Controls.Add(bntAlterarResponsavel);
             painelTechLeader.Controls.Add(bntEstatistica);
+            painelTechLeader.Controls.Add(bntAprovar);
             painelTechLeader.Controls.Add(bntAdicionarDesenvolvedor);
             return painelTechLeader;
         }
@@ -242,6 +255,25 @@ namespace AdaTech.ProjetoIndividual.Views
         {
             JanelaEstatisticas estatistica = new JanelaEstatisticas();
             estatistica.ShowDialog();
+        }
+
+        private void OnClickAprovarTarefa(object sender, EventArgs e)
+        {
+            using (MessageBoxCustomizada customMessageBox = new MessageBoxCustomizada("Escolha o status da tarefa que deseja aprovar:", "Ver Tarefas Pendentes", "Ver Tarefas Em Análise"))
+            {
+                DialogResult result = customMessageBox.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    JanelaAprovarTarefas pendente = new JanelaAprovarTarefas(StatusTarefa.Pendente);
+                    pendente.ShowDialog(); ;
+                }
+                else if (result == DialogResult.No)
+                {
+                    JanelaAprovarTarefas analise = new JanelaAprovarTarefas(StatusTarefa.Analise);
+                    analise.ShowDialog(); ;
+                }
+            }
         }
 
         #endregion
