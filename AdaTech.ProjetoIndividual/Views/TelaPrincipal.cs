@@ -222,24 +222,12 @@ namespace AdaTech.ProjetoIndividual.Views
 
             #endregion
 
-            #region Botão AdicionarDesenvolvedor
-
-            Button bntAdicionarDesenvolvedor = new Button();
-            bntAdicionarDesenvolvedor.Size = new Size(160, 30);
-            bntAdicionarDesenvolvedor.Location = new Point(20, 290);
-            bntAdicionarDesenvolvedor.Anchor = AnchorStyles.Right;
-            bntAdicionarDesenvolvedor.Text = "Adicionar Desenvolvedor";
-            bntAdicionarDesenvolvedor.Click += OnClickAdicionarDesenvolvedor;
-
-            #endregion
-
             painelTechLeader.Controls.Add(bntVisualizarTarefas);
             painelTechLeader.Controls.Add(bntCriarTarefas);
             painelTechLeader.Controls.Add(bntAlterarStatus);
             painelTechLeader.Controls.Add(bntAlterarResponsavel);
             painelTechLeader.Controls.Add(bntEstatistica);
             painelTechLeader.Controls.Add(bntAprovar);
-            painelTechLeader.Controls.Add(bntAdicionarDesenvolvedor);
             return painelTechLeader;
         }
         #endregion
@@ -334,6 +322,11 @@ namespace AdaTech.ProjetoIndividual.Views
             //JanelaRemoverUsuario user = new JanelaRemoverUsuario();
             //user.ShowDialog();
         }
+        private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
+        {
+            //JanelaAdicionarDev dev = new JanelaAdicionarDev();
+            //dev.ShowDialog();
+        }
         #endregion
 
         #region OnClick Em Comum
@@ -361,11 +354,7 @@ namespace AdaTech.ProjetoIndividual.Views
             JanelaCriarTarefas criar = new JanelaCriarTarefas(_usuarioLogado);
             criar.ShowDialog();
         }
-        private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
-        {
-            //JanelaAdicionarDev dev = new JanelaAdicionarDev();
-            //dev.ShowDialog();
-        }
+        
         private void OnClickAlterarStatus(object sender, EventArgs e)
         {
             JanelaAlterarStatus status = new JanelaAlterarStatus();
