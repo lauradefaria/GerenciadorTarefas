@@ -160,7 +160,7 @@ Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Adminis
 - [X] Podem ver as tarefas de todos<br/>
 - [X] Podem criar tarefas<br/>
 - [X] Podem assumir tarefas<br/>
-- [ ] Permitir acesso a estatísticas como: tarefas em atraso, tarefas concluídas, tarefas abandonadas, tarefas com impedimento, tarefas em análise (se foram mesmo concluídas ou se retornam - o tech leader que decide), e tarefas a serem aprovadas para inicio (tarefas que não foram feitas pelo tech leader e precisam de autorização para começar)<br/>
+- [X] Permitir acesso a estatísticas como: tarefas em atraso, tarefas concluídas, tarefas abandonadas, tarefas com impedimento, tarefas em análise (se foram mesmo concluídas ou se retornam - o tech leader que decide), e tarefas a serem aprovadas para inicio (tarefas que não foram feitas pelo tech leader e precisam de autorização para começar)<br/>
 - [X] Colocar um responsável pela tarefa que não seja o criador dela, ou mudar o responsável pela tarefa (APENAS ELE) <br/>
 - [ ] Atualizar desenvolvedores por txt ou json
 - [X] As tarefas podem ter relação quando fazem funções diferentes mas no mesmo local, como: criação da classe de produtos e criação do formulário de criação de produtos (mesmo que não tenham o mesmo responsável) <br/><br/>
@@ -168,7 +168,7 @@ Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Adminis
 **DESENVOLVEDORES**
 - [X] Podem criar tarefas (e automaticamente são os responsáveis por ela), o tempo da tarefa fica em aberto a ser definido pelo tech leader<br/>
 - [X] Os desenvolvedores veem apenas suas tarefas ou tarefas que tenham relação com a sua<br/>
-- [ ] A tarefa só pode ser iniciada com a autorização do tech leader<br/>
+- [X] A tarefa só pode ser iniciada com a autorização do tech leader<br/>
 
 ---
 
