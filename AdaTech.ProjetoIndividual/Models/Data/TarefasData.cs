@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace AdaTech.ProjetoIndividual.Models.Data
 {
@@ -101,6 +102,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 }
 
                 _tarefas.Add(tarefa);
+                SalvarTarefasTxt(_tarefas);
                 return true;
             }
             catch
@@ -126,6 +128,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             if (tarefaExc != null) 
             {
                 _tarefas.Remove(tarefaExc);
+                SalvarTarefasTxt(_tarefas);
             }
         }
 
@@ -145,6 +148,11 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 contador++;
             }
 
+            if(flag)
+            {
+                SalvarTarefasTxt(_tarefas);
+            }
+
             return flag;
         }
 
@@ -162,6 +170,11 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                     break;
                 }
                 contador++;
+            }
+
+            if (flag)
+            {
+                SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
