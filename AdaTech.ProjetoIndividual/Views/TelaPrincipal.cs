@@ -4,6 +4,7 @@ using AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
 using AdaTech.ProjetoIndividual.Views.Janelas;
+using AdaTech.ProjetoIndividual.Views.Janelas.JanelaAdm;
 using AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader;
 using System;
 using System.Collections.Generic;
@@ -230,12 +231,24 @@ namespace AdaTech.ProjetoIndividual.Views
 
             #endregion
 
+            #region Botão AdicionarDesenvolvedor
+
+            Button bntAdicionarDesenvolvedor = new Button();
+            bntAdicionarDesenvolvedor.Size = new Size(160, 30);
+            bntAdicionarDesenvolvedor.Location = new Point(20, 290);
+            bntAdicionarDesenvolvedor.Anchor = AnchorStyles.Right;
+            bntAdicionarDesenvolvedor.Text = "Adicionar Desenvolvedor";
+            bntAdicionarDesenvolvedor.Click += OnClickAdicionarDesenvolvedor;
+
+            #endregion
+
             painelTechLeader.Controls.Add(bntVisualizarTarefas);
             painelTechLeader.Controls.Add(bntCriarTarefas);
             painelTechLeader.Controls.Add(bntAlterarStatus);
             painelTechLeader.Controls.Add(bntAlterarResponsavel);
             painelTechLeader.Controls.Add(bntEstatistica);
             painelTechLeader.Controls.Add(bntAprovar);
+            painelTechLeader.Controls.Add(bntAdicionarDesenvolvedor);
             return painelTechLeader;
         }
         #endregion
@@ -322,18 +335,13 @@ namespace AdaTech.ProjetoIndividual.Views
         #region OnClick Adm
         private void OnClickAdicionarTech(object sender, EventArgs e)
         {
-            //JanelaAdicionarTech tech = new JanelaAdicionarTech();
-            //tech.ShowDialog();
+            JanelaAdicionarTechLeader tech = new JanelaAdicionarTechLeader();
+            tech.ShowDialog();
         }
         private void OnClickRemoverUsuario(object sender, EventArgs e)
         {
             //JanelaRemoverUsuario user = new JanelaRemoverUsuario();
             //user.ShowDialog();
-        }
-        private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
-        {
-            //JanelaAdicionarDev dev = new JanelaAdicionarDev();
-            //dev.ShowDialog();
         }
         #endregion
 
@@ -368,6 +376,13 @@ namespace AdaTech.ProjetoIndividual.Views
             JanelaAlterarStatus status = new JanelaAlterarStatus();
             status.ShowDialog();
         }
+
+        private void OnClickAdicionarDesenvolvedor(object sender, EventArgs e)
+        {
+            JanelaAdicionarDev dev = new JanelaAdicionarDev();
+            dev.ShowDialog();
+        }
+
         #endregion
 
         private void OnClickLogout(object sender, EventArgs e)

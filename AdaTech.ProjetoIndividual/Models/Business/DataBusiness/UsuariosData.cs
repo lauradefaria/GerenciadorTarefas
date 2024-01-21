@@ -93,7 +93,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             }
         }
 
-        internal static void ExcluirUsuario(Usuario usuario)
+        internal static bool ExcluirUsuario(Usuario usuario)
         {
             Usuario user = _usuarios.FirstOrDefault(t => t.Cpf == usuario.Cpf);
 
@@ -101,13 +101,40 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             {
                 _techLeader.Remove(SelecionarTechLeader(user.Cpf));
                 SalvarTechLeaderTxt(_techLeader);
+                return true;
 
             }
             else if (user != null && user.TipoUsuario == TipoUsuario.Desenvolvedor)
             {
                 _desenvolvedor.Remove(SelecionarDesenvolvedor(user.Cpf));
                 SalvarDesenvolvedorTxt(_desenvolvedor);
+                return true;
             }
+            return false;
+        }
+
+        internal static bool VerificarUsuarioExistenteCpf(string cpf)
+        {
+            Usuario usuario = SelecionarUsuario(cpf);
+
+            if (usuario != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        internal static bool VerificarUsuarioExistenteEmail(string email)
+        {
+            Usuario usuario = SelecionarUsuario(email);
+
+            if (usuario != null)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         internal static List<Usuario> ListarUsuariosAtivos()
