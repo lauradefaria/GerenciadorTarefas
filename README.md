@@ -53,8 +53,12 @@ O sistema inicia com a tela de login, na qual sera digitado o código de login d
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaLogin.png" width="400"> <br/>
   Figura 1: Tela de Login     <br/>
 </p>
-Para testes, utilize os seguintes dados de Usuário e Senha: <br/>
-
+Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
+<pre>
+  Tech Leader - Usuário: 4455667788 | Senha: 123456  <br/>
+  Desenvolvedor - Usuário: 0123456789 | Senha: 000000  <br/> 
+  Administrador - Usuário: 34512367809 | Senha: 123456  <br/> 
+</pre>
 
  ### Administrador
  Na tela principal de administrador há três botões: dois relacionados ao cadastro ou remoção de usuários (Desenvolvedor ou Tech Leader) e outro relacionado a visualização dos usuários ativos no sistema. <br/>
@@ -64,23 +68,23 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/>
   Figura 2: Tela Principal de Administrador <br/><br/><br/>
   </p>
   
-**CADASTRAR USUÁRIOS**: Abre uma nova janela para cadastrar novos usuários no sistema (campos: senha, nome, cpf, email). <br/>
+**CADASTRAR DESENVOLVEDOR**: Abre uma nova janela para cadastrar novos usuários do tipo desenvolvedor no sistema (campos: senha, nome, cpf, email). <br/>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarUsuarios.png" width="400"> <br/>
-  Figura 3: Tela Cadastramento de Usuários em Administrador<br/><br/>
-  </p>     
+  Figura 3: Tela Cadastramento de Desenvolvedor em Administrador<br/><br/>
+  </p>       
+  
+**CADASTRAR TECH LEADER**: Abre uma nova janela para cadastrar novos usuários do tipo tech leader no sistema (campos: senha, nome, cpf, email). <br/>
+      <p align="center">
+  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaCadastrarUsuarios.png" width="400"> <br/>
+  Figura 4: Tela Cadastramento de Tech Leader em Administrador<br/><br/>
+  </p>
 
   **REMOVER USUÁRIOS**: Abre uma nova janela para Remoção de usuários do sistema. Escolhe o tipo do usuário que deseja remover e depois o seu nome, após isso o usuário será removido do sistema. <br/>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaRemoverUsuarios.png" width="400"> <br/>
-  Figura 4: Tela Remoção de Usuários em Administrador<br/><br/>
+  Figura 5: Tela Remoção de Usuários em Administrador<br/><br/>
   </p>     
-  
-**VISUALIZAR USUÁRIOS**: Abre uma nova janela para a visualização das usuários ativos no sistema. <br/>
-      <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarUsuarios.png" width="400"> <br/>
-  Figura 5: Tela Visualização de Usuários em Administrador<br/><br/>
-  </p>
   
 ### Tech Leader
  
@@ -109,7 +113,7 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/>
   Figura 10: Tela com Estatísicas de tarefas em Tech Leader<br/><br/>
   </p>     
   
-  **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status. <br/>
+  **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status(Apenas permite colocar para Análise, Impedimento, Abandonada e EmAndamento). <br/>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatus.png" width="400"> <br/>
   Figura 11: Tela para Alterar Status da Tarefa em Tech Leader<br/><br/>
@@ -120,27 +124,45 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/>
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarResponsavel.png" width="400"> <br/>
   Figura 12: Tela para Alterar Responsável da Tarefa em Tech Leader<br/><br/>
   </p>  
+  
+  **APROVAR TAREFA**: Abre uma nova janela para escolher entre aprovar e reprovar tarefas pendentes ou em análise. Análise - Aprovada: Muda de status para Concluída | Reprovada: Muda de status para EmAndamento ou Atrasada. Pendente - Aprovada: Muda de status para EmAndamento ou Atrasada | Reprovada: Tarefa é excluída.<br/>
+      <p align="center">
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAprovarTarefa.png" width="400"> <br/>
+  Figura 13: Tela para Alterar Responsável da Tarefa em Tech Leader<br/><br/>
+  </p>  
+
+ **CADASTRAR DESENVOLVEDOR**: Abre uma nova janela para cadastrar novos usuários do tipo desenvolvedor no sistema (campos: senha, nome, cpf, email). <br/>
+      <p align="center">
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarUsuarios.png" width="400"> <br/>
+  Figura 14: Tela de Cadastramento de Desenvolvedor em Tech Leader<br/><br/>
+  </p>  
  
  ### Desenvolvedor
  
- Na tela principal de Desenvolvedor há 2 botões: um botão relacionado a criação de novas tarefas e outro relacionados a visualização das tarefas ativas/desativadas. <br/>
+ Na tela principal de Desenvolvedor há 3 botões: um botão relacionado a criação de novas tarefas, outro relacionados a visualização das tarefas ativas/desativadas e um que altera o status da tarefa desejada. <br/>
 
  <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaDesenvolvedor.png" width="400"> <br/>
-  Figura 13: Tela Principal de Desenvolvedor <br/><br/><br/>
+  Figura 15: Tela Principal de Desenvolvedor <br/><br/><br/>
   </p>
   
 **CRIAR TAREFA**: Abre uma nova janela para cadastrar novas tarefas no sistema (campos: título, descrição, data de inicio, data de finalização, tamanho, prioridade, responsável e tarefas relacionadas). Para opção de escolha em responsável, será mostrado apenas o nome do próprio desenvolvedor. Assim que finalizar o cadastramento, a tarefa será classificada como "Pendente", na qual só poderá avançar com a permissão do Tech Leader.<br/>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCriarTarefas.png" width="400"> <br/>
-  Figura 14: Tela de Criação de tarefa em Desenvolvedor<br/><br/>
+  Figura 16: Tela de Criação de tarefa em Desenvolvedor<br/><br/>
   </p>     
   
 **VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). Apenas serão mostradas as tarefas relacionadas ao próprio desenvolvedor. <br/>
       <p align="center">
   <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefas.png" width="400"> <br/>
-  Figura 15: Tela Visualização de Tarefas em Desenvolvedor<br/><br/>
+  Figura 17: Tela Visualização de Tarefas em Desenvolvedor<br/><br/>
   </p>
+
+  **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status (Apenas permite colocar para Análise, Impedimento e EmAndamento). <br/>
+      <p align="center">
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatus.png" width="400"> <br/>
+  Figura 18: Tela para Alterar Status da Tarefa em Tech Leader<br/><br/>
+  </p>  
 
 ---
 
@@ -162,7 +184,8 @@ Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Adminis
 - [X] Podem assumir tarefas<br/>
 - [X] Permitir acesso a estatísticas como: tarefas em atraso, tarefas concluídas, tarefas abandonadas, tarefas com impedimento, tarefas em análise (se foram mesmo concluídas ou se retornam - o tech leader que decide), e tarefas a serem aprovadas para inicio (tarefas que não foram feitas pelo tech leader e precisam de autorização para começar)<br/>
 - [X] Colocar um responsável pela tarefa que não seja o criador dela, ou mudar o responsável pela tarefa (APENAS ELE) <br/>
-- [ ] Atualizar desenvolvedores por txt ou json
+- [ ] Leitura dos dados por txt
+- [ ] Atualizar desenvolvedores por json <br/>
 - [X] As tarefas podem ter relação quando fazem funções diferentes mas no mesmo local, como: criação da classe de produtos e criação do formulário de criação de produtos (mesmo que não tenham o mesmo responsável) <br/><br/>
 
 **DESENVOLVEDORES**
