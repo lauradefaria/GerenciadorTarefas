@@ -102,7 +102,7 @@
             this.btnCadastrarDesenvolvedor.Location = new System.Drawing.Point(322, 242);
             this.btnCadastrarDesenvolvedor.Name = "btnCadastrarDesenvolvedor";
             this.btnCadastrarDesenvolvedor.Size = new System.Drawing.Size(123, 47);
-            this.btnCadastrarDesenvolvedor.TabIndex = 10;
+            this.btnCadastrarDesenvolvedor.Click += btnCadastrarDesenvolvedor_Click;
             this.btnCadastrarDesenvolvedor.Text = "Cadastrar Desenvolvedor";
             // 
             // JanelaCadastrarDesenvolvedor

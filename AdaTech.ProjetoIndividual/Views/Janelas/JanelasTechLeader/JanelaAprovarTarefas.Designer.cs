@@ -49,8 +49,8 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
             Controls.Add(btnAprovar);
 
             btnRecusar = new Button();
-            btnRecusar.Text = "Aprovar";
-            btnRecusar.Location = new System.Drawing.Point(70, 480);
+            btnRecusar.Text = "Reprovar";
+            btnRecusar.Location = new System.Drawing.Point(100, 480);
             btnRecusar.Click += (sender, e) => btnReprovarClick?.Invoke(sender, e);
             Controls.Add(btnRecusar);
 

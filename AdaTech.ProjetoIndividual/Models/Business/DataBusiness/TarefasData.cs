@@ -18,7 +18,8 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
         internal static void CarregarTarefas()
         {
-            _tarefas.Add(new Tarefas(6, "PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, DateTime.Now.AddDays(7), TipoPrioridade.Media, "4455667788", TipoTamanho.M, StatusTarefa.EmAndamento, null));
+            _tarefas.Add(new Tarefas(6, "PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, DateTime.Now.AddDays(7), TipoPrioridade.Media, "0123456789", TipoTamanho.M, StatusTarefa.Pendente, null));
+            _tarefas.Add(new Tarefas(8, "BotãoNaTela", "Acrescentar botão para adicionar CSV", DateTime.Now, DateTime.Now.AddDays(2), TipoPrioridade.Baixa, "4455667788", TipoTamanho.S, StatusTarefa.EmAndamento, null));
             //_tarefas = LerTarefasTxt();
         }
 
@@ -92,7 +93,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
                 List<int> tarefasRelacionadas = idTarefas;
                 Tarefas tarefa;
 
-                if (usuarioTipo == TipoUsuario.Desenvolvedor)
+                if (UsuariosData.UsuarioLogado().TipoUsuario == TipoUsuario.Desenvolvedor)
                 {
                     tarefa = new Tarefas(titulo, descricao, dataInicio, prioridade, usuario, fim, tamanho, TipoUsuario.Desenvolvedor, tarefasRelacionadas);
                 }
@@ -102,7 +103,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
                 }
 
                 _tarefas.Add(tarefa);
-                SalvarTarefasTxt(_tarefas);
+                //SalvarTarefasTxt(_tarefas);
                 return true;
             }
             catch
@@ -128,7 +129,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             if (tarefaExc != null)
             {
                 _tarefas.Remove(tarefaExc);
-                SalvarTarefasTxt(_tarefas);
+                //SalvarTarefasTxt(_tarefas);
             }
         }
 
@@ -150,7 +151,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
             if (flag)
             {
-                SalvarTarefasTxt(_tarefas);
+                //SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
@@ -174,7 +175,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
             if (flag)
             {
-                SalvarTarefasTxt(_tarefas);
+               // SalvarTarefasTxt(_tarefas);
             }
 
             return flag;

@@ -38,11 +38,16 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelaAdm
                 return;
             }
 
-            UsuariosData.AdicionarUsuario(senha, nome, cpf, email, TipoUsuario.TechLeader);
 
-            LimparCampos();
-
-            MessageBox.Show("TechLeader cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (senha != null && cpf != null & email != null && nome != null && UsuariosData.AdicionarUsuario(senha, nome, cpf, email, TipoUsuario.TechLeader))
+            {
+                MessageBox.Show("Tech Leader cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimparCampos();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao cadastrar Tech Leader, veifique os campos");
+            }
         }
 
         private void LimparCampos()

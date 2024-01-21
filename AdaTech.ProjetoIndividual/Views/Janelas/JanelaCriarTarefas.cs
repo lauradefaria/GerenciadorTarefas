@@ -61,6 +61,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas
 
             cmbUsuario.DataSource = listaUsuarios;
             cmbUsuario.DisplayMember = "NomeEstilo";
+
         }
 
 

@@ -66,6 +66,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelaAdm
         private void LimparCampos()
         {
             cmbUsuario.SelectedIndex = -1;
+            CarregarUsuarios();
         }
     }
 }

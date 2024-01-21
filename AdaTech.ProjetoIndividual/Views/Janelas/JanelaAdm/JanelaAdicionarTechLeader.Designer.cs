@@ -102,7 +102,7 @@
             this.btnCadastrarTechLeader.Location = new System.Drawing.Point(322, 242);
             this.btnCadastrarTechLeader.Name = "btnCadastrarTechLeader";
             this.btnCadastrarTechLeader.Size = new System.Drawing.Size(123, 47);
-            this.btnCadastrarTechLeader.TabIndex = 10;
+            this.btnCadastrarTechLeader.Click += btnCadastrarTechLeader_Click;
             this.btnCadastrarTechLeader.Text = "Cadastrar TechLeader";
             // 
             // JanelaCadastrarTechLeader

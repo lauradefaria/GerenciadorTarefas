@@ -74,7 +74,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness
                 _dataFimPrevista = new DateTime(dataFim.Year, dataFim.Month, dataFim.Day, 23, 59, 0);
             }
 
-            if (tipo == TipoUsuario.Desenvolvedor)
+            if (tipo == TipoUsuario.Desenvolvedor && UsuariosData.UsuarioLogado().TipoUsuario == TipoUsuario.Desenvolvedor)
             {
                 _status = StatusTarefa.Pendente;
             }

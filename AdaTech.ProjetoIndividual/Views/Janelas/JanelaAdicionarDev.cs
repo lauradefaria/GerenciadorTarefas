@@ -38,11 +38,15 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas
                 return;
             }
 
-            UsuariosData.AdicionarUsuario(senha, nome, cpf, email, TipoUsuario.TechLeader);
-
-            LimparCampos();
-
-            MessageBox.Show("Desenvolvedor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(senha != null && cpf != null & email != null && nome != null && UsuariosData.AdicionarUsuario(senha, nome, cpf, email, TipoUsuario.Desenvolvedor))
+            {
+                MessageBox.Show("Desenvolvedor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimparCampos();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao cadastrar Desenvolvedor, veifique os campos");
+            }
         }
 
         private void LimparCampos()

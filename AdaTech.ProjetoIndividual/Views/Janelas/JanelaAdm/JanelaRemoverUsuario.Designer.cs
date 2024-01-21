@@ -5,7 +5,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelaAdm
     partial class JanelaRemoverUsuario
     {
         private ComboBox cmbUsuario;
-        private Button btnAlterarResponsavel;
+        private Button btnRemoverUsuario;
         private Label lblMensagem;
         private System.ComponentModel.IContainer components = null;
 

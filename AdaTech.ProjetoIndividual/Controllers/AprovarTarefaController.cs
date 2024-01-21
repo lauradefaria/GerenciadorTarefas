@@ -18,12 +18,12 @@ namespace AdaTech.ProjetoIndividual.Controllers
         {
             _form = form;
             _form.btnAprovarClick += btnAprovarClick;
-            _form.btnAprovarClick += btnReprovarClick;
+            _form.btnReprovarClick += btnReprovarClick;
         }
 
         internal void CarregarTarefas()
         {
-            List<Tarefas> tarefas = TarefasData.ListarTarefasAtivas();
+            List<Tarefas> tarefas = TarefasData.ListarTarefas();
             List<Tarefas> lista = new List<Tarefas>();
 
             foreach (Tarefas tarefa in tarefas)
@@ -36,7 +36,7 @@ namespace AdaTech.ProjetoIndividual.Controllers
 
             if (tarefas == null)
             {
-                _form.MostrarMensagem("O usuário não possui nenhuma tarefa ativa para alterar", 'r');
+                _form.MostrarMensagem("O usuário não possui nenhuma tarefa para aprovar", 'r');
             }
 
             _form.CmbTarefas.DataSource = lista;
@@ -59,26 +59,28 @@ namespace AdaTech.ProjetoIndividual.Controllers
                     status = StatusTarefa.EmAndamento;
                 }
 
+
                 if (tarefa != null && TarefasData.AlterarStatus(tarefa, status))
                 {
                     _form.MostrarMensagem("Tarefa aprovada com sucesso!", 'g');
                 }
                 else
                 {
-                    _form.MostrarMensagem("Erro ao alterar a tarefa. Verifique os campos", 'r');
+                    _form.MostrarMensagem("Erro ao aprovar a tarefa. Verifique os campos", 'r');
                 }
 
                 LimparCampos();
             }
             else
             {
-                _form.MostrarMensagem("Erro ao alterar a tarefa.Verifique os campos", 'r');
+                _form.MostrarMensagem("Erro ao aprovar a tarefa.Verifique os campos", 'r');
             }
         }
 
         internal void LimparCampos()
         {
             _form.CmbTarefas.SelectedIndex = -1;
+            CarregarTarefas();
         }
     
         private void btnReprovarClick(object sender, EventArgs e)
@@ -91,6 +93,15 @@ namespace AdaTech.ProjetoIndividual.Controllers
                 if (_form.Status == StatusTarefa.Analise)
                 {
                     status = StatusTarefa.EmAndamento;
+
+                    if (status != StatusTarefa.Pendente && tarefa != null && TarefasData.AlterarStatus(tarefa, status))
+                    {
+                        _form.MostrarMensagem("Tarefa reprovada com sucesso!", 'g');
+                    }
+                    else
+                    {
+                        _form.MostrarMensagem("Erro ao reprovar a tarefa. Verifique os campos", 'r');
+                    }
                 }
                 else
                 {
@@ -99,20 +110,11 @@ namespace AdaTech.ProjetoIndividual.Controllers
 
                 }
 
-                if (status != StatusTarefa.Pendente && tarefa != null && TarefasData.AlterarStatus(tarefa, status))
-                {
-                    _form.MostrarMensagem("Tarefa reprovada com sucesso!", 'g');
-                }
-                else
-                {
-                    _form.MostrarMensagem("Erro ao alterar a tarefa. Verifique os campos", 'r');
-                }
-
                 LimparCampos();
             }
             else
             {
-                _form.MostrarMensagem("Erro ao alterar a tarefa.Verifique os campos", 'r');
+                _form.MostrarMensagem("Erro ao reprovar a tarefa.Verifique os campos", 'r');
             }
         }
     }
