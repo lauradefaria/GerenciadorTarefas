@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AdaTech.ProjetoIndividual.Models.Data;
+using AdaTech.ProjetoIndividual.Models.Business.DataBusiness;
 
 namespace AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness
 {

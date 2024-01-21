@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace AdaTech.ProjetoIndividual.Models.Data
+namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 {
     internal class TarefasData
     {
@@ -30,9 +30,9 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             List<Tarefas> lista = new List<Tarefas>();
 
-            foreach(Tarefas tarefa in _tarefas)
+            foreach (Tarefas tarefa in _tarefas)
             {
-                if(tarefa.Status == StatusTarefa.EmAndamento || tarefa.Status == StatusTarefa.Impedimento || tarefa.Status == StatusTarefa.Atrasada)
+                if (tarefa.Status == StatusTarefa.EmAndamento || tarefa.Status == StatusTarefa.Impedimento || tarefa.Status == StatusTarefa.Atrasada)
                 {
                     lista.Add(tarefa);
                 }
@@ -41,13 +41,13 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             return lista;
         }
 
-        internal static  List<Tarefas> ListarTarefasPorStatus(StatusTarefa status)
+        internal static List<Tarefas> ListarTarefasPorStatus(StatusTarefa status)
         {
             List<Tarefas> lista = new List<Tarefas>();
 
             foreach (Tarefas tarefa in _tarefas)
             {
-                if (tarefa.Status == status )
+                if (tarefa.Status == status)
                 {
                     lista.Add(tarefa);
                 }
@@ -60,9 +60,9 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             int contador = 0;
 
-            foreach(Tarefas tarefa in _tarefas)
+            foreach (Tarefas tarefa in _tarefas)
             {
-                if(DateTime.Compare(DateTime.Now, tarefa.DataFimPrevista) >= 0 && tarefa.Status == StatusTarefa.EmAndamento)
+                if (DateTime.Compare(DateTime.Now, tarefa.DataFimPrevista) >= 0 && tarefa.Status == StatusTarefa.EmAndamento)
                 {
                     _tarefas[contador].Status = StatusTarefa.Atrasada;
                 }
@@ -125,7 +125,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             Tarefas tarefaExc = _tarefas.FirstOrDefault(t => t.Id == tarefa.Id);
 
-            if (tarefaExc != null) 
+            if (tarefaExc != null)
             {
                 _tarefas.Remove(tarefaExc);
                 SalvarTarefasTxt(_tarefas);
@@ -139,7 +139,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
 
             foreach (Tarefas tarefa in _tarefas)
             {
-                if(tarefa.Id == tarefaEscolhida.Id)
+                if (tarefa.Id == tarefaEscolhida.Id)
                 {
                     _tarefas[contador].Responsavel = novoResponsavel;
                     flag = true;
@@ -148,7 +148,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 contador++;
             }
 
-            if(flag)
+            if (flag)
             {
                 SalvarTarefasTxt(_tarefas);
             }
@@ -213,7 +213,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             var id = int.Parse(dados[0]);
 
             var tarefa = new Tarefas(id, titulo, descricao, dataInicio, dataFimPrevista, prioridade, usuario.Cpf, tamanho, status, null);
-            
+
             if (dados.Length >= 9)
             {
                 List<int> idTarefas = dados[9].Split('/').Select(x => int.Parse(x)).ToList();

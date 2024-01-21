@@ -1,7 +1,7 @@
-﻿using AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness;
+﻿using AdaTech.ProjetoIndividual.Models.Business.DataBusiness;
+using AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
-using AdaTech.ProjetoIndividual.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
