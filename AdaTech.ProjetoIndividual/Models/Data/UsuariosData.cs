@@ -14,6 +14,15 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         private static List<Administrador> _administrador = new List<Administrador>();
         private static List<Desenvolvedor> _desenvolvedor = new List<Desenvolvedor>();
         private static List<Usuario> _usuarios = new List<Usuario>();
+
+        public static List<Desenvolvedor> Desenvolvedores { get => _desenvolvedor; set => _desenvolvedor = value; }
+        public static List<TechLeader> TechLeaders { get => _techLeader; set => _techLeader = value; }
+        public static List<Administrador> Administrador { get => _administrador; set => _administrador = value; }
+
+        private static readonly string _DIRECTORY_PATH = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "Data";
+        private static readonly string _FILE_PATH_DESENVOLVEDOR = Path.Combine(_DIRECTORY_PATH, "Desenvolvedor.txt");
+        private static readonly string _FILE_PATH_TECH_LEADER = Path.Combine(_DIRECTORY_PATH, "TechLeader.txt");
+        private static readonly string _FILE_PATH_ADMINISTRADOR = Path.Combine(_DIRECTORY_PATH, "Administrador.txt");
         private static Usuario _usuarioLogin;
 
         internal static Usuario UsuarioLogado()
@@ -49,6 +58,10 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             _usuarios.AddRange(_techLeader);
             _usuarios.AddRange(_desenvolvedor);
             _usuarios.AddRange(_administrador);
+
+            //_desenvolvedores = LerDevTxt();
+            // _techLeaders = LerTlTxt();
+            //_administrador = LerAdmTxt();
 
             return _usuarios;
         }
@@ -101,6 +114,252 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 }
             }
             return null;
+        }
+
+        internal static List<Usuario> LerUsuariosTxt(string _FILE_PATH, int tipoUsuario)
+        {
+            List<Usuario> listaUsuarios = new List<Usuario>();
+
+            try
+            {
+                if (File.Exists(_FILE_PATH))
+                {
+
+                    using (StreamReader sr = new StreamReader(_FILE_PATH))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string linha = sr.ReadLine();
+                            if (tipoUsuario == 0)
+                            {
+                                Desenvolvedor dev = ConverterLinhaParaDev(linha);
+                                listaUsuarios.Add(dev);
+                            }
+                            else if (tipoUsuario == 1)
+                            {
+                                TechLeader tl = ConverterLinhaParaTl(linha);
+                                listaUsuarios.Add(tl);
+                            }
+                            else if (tipoUsuario == 2)
+                            {
+                                Administrador adm = ConverterLinhaParaAdm(linha);
+                                listaUsuarios.Add(adm);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O arquivo txt não existe.");
+                }
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("O arquivo não pôde ser aberto: " + e.Message);
+            }
+            return listaUsuarios;
+        }
+
+        internal static List<Desenvolvedor> LerDevTxt()
+        {
+            List<Desenvolvedor> listaDev = new List<Desenvolvedor>();
+
+            try
+            {
+                if (File.Exists(_FILE_PATH_DESENVOLVEDOR))
+                {
+                    List<Usuario> lista = LerUsuariosTxt(_FILE_PATH_DESENVOLVEDOR, 0);
+                    if (lista.OfType<Desenvolvedor>().ToList().Count > 0)
+                    {
+                        listaDev = lista.OfType<Desenvolvedor>().ToList();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O arquivo txt de desenvolvedor não existe.");
+                }
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("O arquivo não pôde ser aberto: " + e.Message);
+            }
+            return listaDev;
+        }
+
+        internal static List<TechLeader> LerTlTxt()
+        {
+            List<TechLeader> listaTl = new List<TechLeader>();
+
+            try
+            {
+                if (File.Exists(_FILE_PATH_TECH_LEADER))
+                {
+                    List<Usuario> lista = LerUsuariosTxt(_FILE_PATH_TECH_LEADER, 1);
+                    if (lista.OfType<TechLeader>().ToList().Count > 0)
+                    {
+                        listaTl = lista.OfType<TechLeader>().ToList();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O arquivo txt de tech leader não existe.");
+                }
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("O arquivo não pôde ser aberto: " + e.Message);
+            }
+            return listaTl;
+        }
+
+        internal static List<Administrador> LerAdmTxt()
+        {
+            List<Administrador> listaAdm = new List<Administrador>();
+
+            try
+            {
+                if (File.Exists(_FILE_PATH_ADMINISTRADOR))
+                {
+                    List<Usuario> lista = LerUsuariosTxt(_FILE_PATH_ADMINISTRADOR, 2);
+                    if (lista.OfType<Administrador>().ToList().Count > 0)
+                    {
+                        listaAdm = lista.OfType<Administrador>().ToList();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O arquivo txt de administrador não existe.");
+                }
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("O arquivo não pôde ser aberto: " + e.Message);
+            }
+            return listaAdm;
+        }
+
+        private static Tuple<List<string>, bool> ConverterLinhaParaUsuario(string linha)
+        {
+            string[] objetoString = linha.Split(',');
+
+            string senha = objetoString[0];
+            string nomeCompleto = objetoString[1];
+            string cpf = objetoString[2];
+            string email = objetoString[3];
+            if (objetoString.Length > 5)
+            {
+                bool ativo = bool.Parse(objetoString[5]);
+
+                return new Tuple<List<string>, bool>(new List<string> { senha, nomeCompleto, cpf, email }, ativo);
+            }
+
+            return new Tuple<List<string>, bool>(new List<string> { senha, nomeCompleto, cpf, email }, true);
+        }
+
+        internal static Desenvolvedor ConverterLinhaParaDev(string linha)
+        {
+            return new Desenvolvedor(ConverterLinhaParaUsuario(linha).Item1[0],
+                                    ConverterLinhaParaUsuario(linha).Item1[1],
+                                        ConverterLinhaParaUsuario(linha).Item1[2],
+                                            ConverterLinhaParaUsuario(linha).Item1[3],
+                                                    ConverterLinhaParaUsuario(linha).Item2);
+        }
+
+        internal static Administrador ConverterLinhaParaAdm(string linha)
+        {
+            return new Administrador(ConverterLinhaParaUsuario(linha).Item1[0],
+                                        ConverterLinhaParaUsuario(linha).Item1[1],
+                                            ConverterLinhaParaUsuario(linha).Item1[2],
+                                                ConverterLinhaParaUsuario(linha).Item1[3],
+                                                    ConverterLinhaParaUsuario(linha).Item2);
+        }
+
+        internal static TechLeader ConverterLinhaParaTl(string linha)
+        {
+            return new TechLeader(ConverterLinhaParaUsuario(linha).Item1[0],
+                                            ConverterLinhaParaUsuario(linha).Item1[1],
+                                                ConverterLinhaParaUsuario(linha).Item1[2],
+                                                    ConverterLinhaParaUsuario(linha).Item1[3],
+                                                            ConverterLinhaParaUsuario(linha).Item2);
+        }
+
+        internal static void SalvarUsuariosTxt<T>(List<T> usuarios, string _FILE_PATH)
+        {
+            try
+            {
+                List<string> linhas = new List<string>();
+                if (typeof(T) == typeof(Desenvolvedor))
+                {
+                    foreach (Desenvolvedor dev in usuarios.OfType<Desenvolvedor>())
+                    {
+                        string linha = ConverterUsuarioParaLinha(dev);
+                        linhas.Add(linha);
+                    }
+                }
+                else if (typeof(T) == typeof(TechLeader))
+                {
+                    foreach (TechLeader tl in usuarios.OfType<TechLeader>())
+                    {
+                        string linha = ConverterUsuarioParaLinha(tl);
+                        linhas.Add(linha);
+                    }
+                }
+                else if (typeof(T) == typeof(Administrador))
+                {
+                    foreach (Administrador adm in usuarios.OfType<Administrador>())
+                    {
+                        string linha = ConverterUsuarioParaLinha(adm);
+                        linhas.Add(linha);
+                    }
+                }
+
+                File.AppendAllLines(_FILE_PATH, linhas);
+
+                MessageBox.Show($"Alterações adicionadas com sucesso no arquivo.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao adicionar as alterações no arquivo: {ex.Message}");
+            }
+        }
+
+        internal static void SalvarTechLeaderTxt(List<TechLeader> techLeaders)
+        {
+            try
+            {
+                SalvarUsuariosTxt<TechLeader>(techLeaders, _FILE_PATH_TECH_LEADER);
+
+                _techLeader = LerTlTxt();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao adicionar as alterações no arquivo: {ex.Message}");
+            }
+        }
+
+        internal static void SalvarDesenvolvedoresTxt(List<Desenvolvedor> desenvolvedores)
+        {
+            try
+            {
+                SalvarUsuariosTxt<Desenvolvedor>(desenvolvedores, _FILE_PATH_DESENVOLVEDOR);
+
+                _desenvolvedor.AddRange(LerDevTxt());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao adicionar as alterações no arquivo: {ex.Message}");
+            }
+        }
+
+        internal static string ConverterUsuarioParaLinha(Usuario usuario)
+        {
+            if (usuario is TechLeader || usuario is Desenvolvedor)
+            {
+                return $"{usuario.Senha},{usuario.Nome},{usuario.Cpf},{usuario.Email},{usuario.Ativo}";
+            }
+            return $"{usuario.Senha},{usuario.Nome},{usuario.Cpf},{usuario.Email},{usuario.Ativo}";
         }
     }
 }

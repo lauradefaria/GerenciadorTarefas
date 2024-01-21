@@ -70,10 +70,10 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
         {
             quantEmAndamento = quantAtrasadas = quantImpedidas = quantAnalise = quantPendente = quantConcluidas = quantCanceladas = 0;
             EstatisticasController controller = new EstatisticasController(this);
+            TarefasData.ConferirAtraso();
             controller.CarregarEstatisticas();
 
             InitializeComponent();
-            TarefasData.ConferirAtraso();
         }
 
         internal void MostrarMensagem(string mensagem)

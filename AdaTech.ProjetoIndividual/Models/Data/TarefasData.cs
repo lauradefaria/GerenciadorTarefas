@@ -6,16 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace AdaTech.ProjetoIndividual.Models.Data
 {
     internal class TarefasData
     {
         private static List<Tarefas> _tarefas = new List<Tarefas>();
+        private static readonly string _DIRECTORY_PATH = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Data";
+        private static readonly string _FILE_PATH = Path.Combine(_DIRECTORY_PATH, "Tarefas.txt");
 
         internal static void CarregarTarefas()
         {
             _tarefas.Add(new Tarefas(6, "PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, DateTime.Now.AddDays(7), TipoPrioridade.Media, "4455667788", TipoTamanho.M, StatusTarefa.EmAndamento, null));
+            //_tarefas = LerTarefasTxt();
         }
 
         internal static List<Tarefas> ListarTarefas()
@@ -98,6 +102,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 }
 
                 _tarefas.Add(tarefa);
+                SalvarTarefasTxt(_tarefas);
                 return true;
             }
             catch
@@ -123,6 +128,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             if (tarefaExc != null) 
             {
                 _tarefas.Remove(tarefaExc);
+                SalvarTarefasTxt(_tarefas);
             }
         }
 
@@ -140,6 +146,11 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                     break;
                 }
                 contador++;
+            }
+
+            if(flag)
+            {
+                SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
@@ -161,7 +172,88 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 contador++;
             }
 
+            if (flag)
+            {
+                SalvarTarefasTxt(_tarefas);
+            }
+
             return flag;
+        }
+
+        internal static List<Tarefas> LerTarefasTxt()
+        {
+            var tarefas = new List<Tarefas>();
+
+            if (File.Exists(_FILE_PATH))
+            {
+                using (StreamReader sr = new StreamReader(_FILE_PATH))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string linha = sr.ReadLine();
+                        Tarefas tarefa = ConverterLinha(linha);
+                        tarefas.Add(tarefa);
+                    }
+                }
+            }
+            return tarefas;
+        }
+
+        internal static Tarefas ConverterLinha(string linha)
+        {
+            var dados = linha.Split(',');
+            var titulo = dados[1];
+            var descricao = dados[2];
+            var dataInicio = DateTime.Parse(dados[3]);
+            var dataFimPrevista = DateTime.Parse(dados[4]);
+            var prioridade = (TipoPrioridade)Enum.Parse(typeof(TipoPrioridade), dados[5]);
+            Usuario usuario = UsuariosData.SelecionarUsuario(dados[6]);
+            var tamanho = (TipoTamanho)Enum.Parse(typeof(TipoTamanho), dados[7]);
+            var status = (StatusTarefa)Enum.Parse(typeof(StatusTarefa), dados[8]);
+            var id = int.Parse(dados[0]);
+
+            var tarefa = new Tarefas(id, titulo, descricao, dataInicio, dataFimPrevista, prioridade, usuario.Cpf, tamanho, status, null);
+            
+            if (dados.Length >= 9)
+            {
+                List<int> idTarefas = dados[9].Split('/').Select(x => int.Parse(x)).ToList();
+                tarefa.TarefasRelacionadas = idTarefas;
+            }
+
+            return tarefa;
+        }
+
+        internal static void SalvarTarefasTxt(List<Tarefas> tarefas)
+        {
+            try
+            {
+                List<string> linhas = new List<string>();
+
+                foreach (var tarefa in tarefas)
+                {
+                    string dataConclusao = tarefa.DataConclusao.Date.ToString("yyyy-MM-dd");
+                    if (tarefa.DataConclusao == DateTime.MinValue)
+                    {
+                        dataConclusao = "";
+                    }
+
+                    var linha = $"{tarefa.Titulo},{tarefa.Descricao},{tarefa.DataInicio.Date.ToString("yyyy-MM-dd")},{tarefa.DataFimPrevista.Date.ToString("yyyy-MM-dd")}," +
+                    $"{tarefa.Prioridade},{tarefa.Responsavel.Cpf},{tarefa.Id},{tarefa.Status},{dataConclusao}," +
+                    $"{string.Join("/", tarefa.TarefasRelacionadas)}";
+
+                    linhas.Add(linha);
+                }
+
+
+                File.AppendAllLines(_FILE_PATH, linhas);
+
+                _tarefas = LerTarefasTxt();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao salvar tarefas", ex);
+            }
         }
     }
 }
