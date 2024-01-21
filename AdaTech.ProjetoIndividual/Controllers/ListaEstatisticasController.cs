@@ -1,7 +1,6 @@
 ﻿using AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
-using AdaTech.ProjetoIndividual.Models.Data;
 using AdaTech.ProjetoIndividual.Views.Janelas;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader;
+using AdaTech.ProjetoIndividual.Models.Business.DataBusiness;
 
 namespace AdaTech.ProjetoIndividual.Controllers
 {

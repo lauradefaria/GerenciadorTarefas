@@ -1,5 +1,5 @@
 ﻿using AdaTech.ProjetoIndividual.Controllers;
-using AdaTech.ProjetoIndividual.Models.Data;
+using AdaTech.ProjetoIndividual.Models.Business.DataBusiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,32 +38,32 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelasTechLeader
 
         internal int QuantImpedidas
         {
-            get { return QuantImpedidas; }
-            set {  QuantImpedidas = value;}
+            get { return quantImpedidas; }
+            set {  quantImpedidas = value;}
         }
 
         internal int QuantAnalise
         {
-            get { return QuantAnalise; }
-            set { QuantAnalise = value; }
+            get { return quantAnalise; }
+            set { quantAnalise = value; }
         }
 
         internal int QuantPendente
         {
-            get { return QuantPendente; }
-            set { QuantPendente = value; }
+            get { return quantPendente; }
+            set { quantPendente = value; }
         }
 
         internal int QuantConcluidas
         {
-            get { return QuantConcluidas; }
-            set { QuantConcluidas = value; }
+            get { return quantConcluidas; }
+            set { quantConcluidas = value; }
         }
 
         internal int QuantCanceladas
         {
-            get { return QuantCanceladas; }
-            set { QuantCanceladas = value; }
+            get { return quantCanceladas; }
+            set { quantCanceladas = value; }
         }
 
         internal JanelaEstatisticas()

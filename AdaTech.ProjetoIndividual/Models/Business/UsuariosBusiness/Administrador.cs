@@ -9,7 +9,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness
     internal class Administrador : Usuario
     {
         internal Administrador(string senha, string nome, string cpf, string email, bool ativo = true)
-            : base(nome, email, senha, cpf)
+            : base(nome, email, senha, cpf, ativo)
         {
             TipoUsuario = Enums.TipoUsuario.Administrador;
         }

@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness;
 
-namespace AdaTech.ProjetoIndividual.Models.Data
+namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 {
     internal class UsuariosData
     {
@@ -65,9 +66,84 @@ namespace AdaTech.ProjetoIndividual.Models.Data
 
             return _usuarios;
         }
+
+        internal static bool AdicionarUsuario(string senha, string nome, string cpf, string email, TipoUsuario usuarioTipo)
+        {
+            try
+            {
+
+                if (usuarioTipo == TipoUsuario.Desenvolvedor)
+                {
+                    Desenvolvedor usuario = new Desenvolvedor(senha, nome, cpf, email, true);
+                    _desenvolvedor.Add(usuario);
+                    _usuarios.Add(usuario);
+                    //SalvarDesenvolvedorTxt(_desenvolvedor);
+                }
+                else
+                {
+                    TechLeader usuario = new TechLeader(senha, nome, cpf, email, true);
+                    _techLeader.Add(usuario);
+                    _usuarios.Add(usuario);
+                    //SalvarTechLeaderTxt(_techLeader);
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        internal static bool ExcluirUsuario(Usuario usuario)
+        {
+            Usuario user = _usuarios.FirstOrDefault(t => t.Cpf == usuario.Cpf);
+
+            if (user != null && user.TipoUsuario == TipoUsuario.TechLeader)
+            {
+                _techLeader.Remove(SelecionarTechLeader(user.Cpf));
+                _usuarios.Remove(SelecionarUsuario(user.Cpf));
+                //SalvarTechLeaderTxt(_techLeader);
+                return true;
+
+            }
+            else if (user != null && user.TipoUsuario == TipoUsuario.Desenvolvedor)
+            {
+                _desenvolvedor.Remove(SelecionarDesenvolvedor(user.Cpf));
+                _usuarios.Remove(SelecionarUsuario(user.Cpf));
+                //SalvarDesenvolvedorTxt(_desenvolvedor);
+                return true;
+            }
+            return false;
+        }
+
+        internal static bool VerificarUsuarioExistenteCpf(string cpf)
+        {
+            Usuario usuario = SelecionarUsuario(cpf);
+
+            if (usuario != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        internal static bool VerificarUsuarioExistenteEmail(string email)
+        {
+            Usuario usuario = SelecionarUsuario(email);
+
+            if (usuario != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         internal static List<Usuario> ListarUsuariosAtivos()
         {
-            if(_usuarios.Count <= 0)
+            if (_usuarios.Count <= 0)
             {
                 MessageBox.Show("Sem usuários ativos no sistema");
             }
@@ -75,10 +151,10 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             {
                 List<Usuario> lista = new List<Usuario>();
 
-                foreach(Usuario u in _usuarios)
+                foreach (Usuario u in _usuarios)
                 {
                     if (u.Ativo == true)
-                    { 
+                    {
                         if (u.TipoUsuario == TipoUsuario.Desenvolvedor || u.TipoUsuario == TipoUsuario.TechLeader)
                         {
                             lista.Add(u);
@@ -115,6 +191,30 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             }
             return null;
         }
+
+        internal static TechLeader SelecionarTechLeader(string usuario)
+        {
+            foreach (TechLeader usuarioComparacao in _usuarios)
+            {
+                if (usuarioComparacao.Cpf == usuario)
+                {
+                    return usuarioComparacao;
+                }
+            }
+            return null;
+        }
+        internal static Desenvolvedor SelecionarDesenvolvedor(string usuario)
+        {
+            foreach (Desenvolvedor usuarioComparacao in _usuarios)
+            {
+                if (usuarioComparacao.Cpf == usuario)
+                {
+                    return usuarioComparacao;
+                }
+            }
+            return null;
+        }
+
 
         internal static List<Usuario> LerUsuariosTxt(string _FILE_PATH, int tipoUsuario)
         {
@@ -327,7 +427,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             try
             {
-                SalvarUsuariosTxt<TechLeader>(techLeaders, _FILE_PATH_TECH_LEADER);
+                SalvarUsuariosTxt(techLeaders, _FILE_PATH_TECH_LEADER);
 
                 _techLeader = LerTlTxt();
 
@@ -338,11 +438,11 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             }
         }
 
-        internal static void SalvarDesenvolvedoresTxt(List<Desenvolvedor> desenvolvedores)
+        internal static void SalvarDesenvolvedorTxt(List<Desenvolvedor> desenvolvedores)
         {
             try
             {
-                SalvarUsuariosTxt<Desenvolvedor>(desenvolvedores, _FILE_PATH_DESENVOLVEDOR);
+                SalvarUsuariosTxt(desenvolvedores, _FILE_PATH_DESENVOLVEDOR);
 
                 _desenvolvedor.AddRange(LerDevTxt());
 

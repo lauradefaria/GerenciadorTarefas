@@ -1,5 +1,5 @@
 using AdaTech.ProjetoIndividual.Controllers;
-using AdaTech.ProjetoIndividual.Models.Data;
+using AdaTech.ProjetoIndividual.Models.Business.DataBusiness;
 using AdaTech.ProjetoIndividual.Views;
 
 namespace AdaTech.ProjetoIndividual

@@ -1,4 +1,4 @@
-using AdaTech.ProjetoIndividual.Models.Data;
+using AdaTech.ProjetoIndividual.Models.Business.DataBusiness;
 
 namespace AdaTech.ProjetoIndividual
 {

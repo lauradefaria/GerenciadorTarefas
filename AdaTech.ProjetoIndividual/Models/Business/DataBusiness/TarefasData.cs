@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace AdaTech.ProjetoIndividual.Models.Data
+namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 {
     internal class TarefasData
     {
@@ -18,7 +18,8 @@ namespace AdaTech.ProjetoIndividual.Models.Data
 
         internal static void CarregarTarefas()
         {
-            _tarefas.Add(new Tarefas(6, "PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, DateTime.Now.AddDays(7), TipoPrioridade.Media, "4455667788", TipoTamanho.M, StatusTarefa.EmAndamento, null));
+            _tarefas.Add(new Tarefas(6, "PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, DateTime.Now.AddDays(7), TipoPrioridade.Media, "0123456789", TipoTamanho.M, StatusTarefa.Pendente, null));
+            _tarefas.Add(new Tarefas(8, "BotãoNaTela", "Acrescentar botão para adicionar CSV", DateTime.Now, DateTime.Now.AddDays(2), TipoPrioridade.Baixa, "4455667788", TipoTamanho.S, StatusTarefa.EmAndamento, null));
             //_tarefas = LerTarefasTxt();
         }
 
@@ -30,9 +31,9 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             List<Tarefas> lista = new List<Tarefas>();
 
-            foreach(Tarefas tarefa in _tarefas)
+            foreach (Tarefas tarefa in _tarefas)
             {
-                if(tarefa.Status == StatusTarefa.EmAndamento || tarefa.Status == StatusTarefa.Impedimento || tarefa.Status == StatusTarefa.Atrasada)
+                if (tarefa.Status == StatusTarefa.EmAndamento || tarefa.Status == StatusTarefa.Impedimento || tarefa.Status == StatusTarefa.Atrasada)
                 {
                     lista.Add(tarefa);
                 }
@@ -41,13 +42,13 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             return lista;
         }
 
-        internal static  List<Tarefas> ListarTarefasPorStatus(StatusTarefa status)
+        internal static List<Tarefas> ListarTarefasPorStatus(StatusTarefa status)
         {
             List<Tarefas> lista = new List<Tarefas>();
 
             foreach (Tarefas tarefa in _tarefas)
             {
-                if (tarefa.Status == status )
+                if (tarefa.Status == status)
                 {
                     lista.Add(tarefa);
                 }
@@ -60,9 +61,9 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             int contador = 0;
 
-            foreach(Tarefas tarefa in _tarefas)
+            foreach (Tarefas tarefa in _tarefas)
             {
-                if(DateTime.Compare(DateTime.Now, tarefa.DataFimPrevista) >= 0 && tarefa.Status == StatusTarefa.EmAndamento)
+                if (DateTime.Compare(DateTime.Now, tarefa.DataFimPrevista) >= 0 && tarefa.Status == StatusTarefa.EmAndamento)
                 {
                     _tarefas[contador].Status = StatusTarefa.Atrasada;
                 }
@@ -92,7 +93,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 List<int> tarefasRelacionadas = idTarefas;
                 Tarefas tarefa;
 
-                if (usuarioTipo == TipoUsuario.Desenvolvedor)
+                if (UsuariosData.UsuarioLogado().TipoUsuario == TipoUsuario.Desenvolvedor)
                 {
                     tarefa = new Tarefas(titulo, descricao, dataInicio, prioridade, usuario, fim, tamanho, TipoUsuario.Desenvolvedor, tarefasRelacionadas);
                 }
@@ -102,7 +103,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 }
 
                 _tarefas.Add(tarefa);
-                SalvarTarefasTxt(_tarefas);
+                //SalvarTarefasTxt(_tarefas);
                 return true;
             }
             catch
@@ -125,10 +126,10 @@ namespace AdaTech.ProjetoIndividual.Models.Data
         {
             Tarefas tarefaExc = _tarefas.FirstOrDefault(t => t.Id == tarefa.Id);
 
-            if (tarefaExc != null) 
+            if (tarefaExc != null)
             {
                 _tarefas.Remove(tarefaExc);
-                SalvarTarefasTxt(_tarefas);
+                //SalvarTarefasTxt(_tarefas);
             }
         }
 
@@ -139,7 +140,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
 
             foreach (Tarefas tarefa in _tarefas)
             {
-                if(tarefa.Id == tarefaEscolhida.Id)
+                if (tarefa.Id == tarefaEscolhida.Id)
                 {
                     _tarefas[contador].Responsavel = novoResponsavel;
                     flag = true;
@@ -148,9 +149,9 @@ namespace AdaTech.ProjetoIndividual.Models.Data
                 contador++;
             }
 
-            if(flag)
+            if (flag)
             {
-                SalvarTarefasTxt(_tarefas);
+                //SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
@@ -174,7 +175,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
 
             if (flag)
             {
-                SalvarTarefasTxt(_tarefas);
+               // SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
@@ -213,7 +214,7 @@ namespace AdaTech.ProjetoIndividual.Models.Data
             var id = int.Parse(dados[0]);
 
             var tarefa = new Tarefas(id, titulo, descricao, dataInicio, dataFimPrevista, prioridade, usuario.Cpf, tamanho, status, null);
-            
+
             if (dados.Length >= 9)
             {
                 List<int> idTarefas = dados[9].Split('/').Select(x => int.Parse(x)).ToList();
