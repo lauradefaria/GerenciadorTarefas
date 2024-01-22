@@ -1,0 +1,2 @@
+DesenvolverPainelCA,Criar interface dde comunidade academica,2024-01-15,2024-01-20,Alta,4455667788,1,Concluida,M
+CorrigirBugs,Corrigir bugs na classe de comunidade acadêmica,2024-01-05,2024-01-27,Alta,0123456789,2,EmAndamento,S,1

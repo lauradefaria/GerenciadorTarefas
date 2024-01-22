@@ -13,14 +13,12 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
     internal class TarefasData
     {
         private static List<Tarefas> _tarefas = new List<Tarefas>();
-        private static readonly string _DIRECTORY_PATH = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Data";
-        private static readonly string _FILE_PATH = Path.Combine(_DIRECTORY_PATH, "Tarefas.txt");
+      
+        private static readonly string _FILE_PATH = "C:\\Users\\lauraa\\Documents\\POO\\Gerenciador\\GerenciadorTarefas\\AdaTech.ProjetoIndividual\\Models\\Data\\Tarefas.txt"; //Altere para o seu caminho do arquivo
 
         internal static void CarregarTarefas()
         {
-            _tarefas.Add(new Tarefas(6, "PlanejarProximoSprint", "Separar issues para a próxima sprint", DateTime.Now, DateTime.Now.AddDays(7), TipoPrioridade.Media, "0123456789", TipoTamanho.M, StatusTarefa.Pendente, null));
-            _tarefas.Add(new Tarefas(8, "BotãoNaTela", "Acrescentar botão para adicionar CSV", DateTime.Now, DateTime.Now.AddDays(2), TipoPrioridade.Baixa, "4455667788", TipoTamanho.S, StatusTarefa.EmAndamento, null));
-            //_tarefas = LerTarefasTxt();
+            _tarefas = LerTarefasTxt();
         }
 
         internal static List<Tarefas> ListarTarefas()
@@ -103,7 +101,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
                 }
 
                 _tarefas.Add(tarefa);
-                //SalvarTarefasTxt(_tarefas);
+                SalvarTarefasTxt(_tarefas);
                 return true;
             }
             catch
@@ -129,7 +127,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             if (tarefaExc != null)
             {
                 _tarefas.Remove(tarefaExc);
-                //SalvarTarefasTxt(_tarefas);
+                SalvarTarefasTxt(_tarefas);
             }
         }
 
@@ -151,7 +149,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
             if (flag)
             {
-                //SalvarTarefasTxt(_tarefas);
+                SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
@@ -175,7 +173,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
             if (flag)
             {
-               // SalvarTarefasTxt(_tarefas);
+               SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
@@ -184,7 +182,6 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
         internal static List<Tarefas> LerTarefasTxt()
         {
             var tarefas = new List<Tarefas>();
-
             if (File.Exists(_FILE_PATH))
             {
                 using (StreamReader sr = new StreamReader(_FILE_PATH))
@@ -203,24 +200,23 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
         internal static Tarefas ConverterLinha(string linha)
         {
             var dados = linha.Split(',');
-            var titulo = dados[1];
-            var descricao = dados[2];
-            var dataInicio = DateTime.Parse(dados[3]);
-            var dataFimPrevista = DateTime.Parse(dados[4]);
-            var prioridade = (TipoPrioridade)Enum.Parse(typeof(TipoPrioridade), dados[5]);
-            Usuario usuario = UsuariosData.SelecionarUsuario(dados[6]);
-            var tamanho = (TipoTamanho)Enum.Parse(typeof(TipoTamanho), dados[7]);
-            var status = (StatusTarefa)Enum.Parse(typeof(StatusTarefa), dados[8]);
-            var id = int.Parse(dados[0]);
+            var titulo = dados[0];
+            var descricao = dados[1];
+            var dataInicio = DateTime.Parse(dados[2]);
+            var dataFimPrevista = DateTime.Parse(dados[3]);
+            var prioridade = (TipoPrioridade)Enum.Parse(typeof(TipoPrioridade), dados[4]);
+            Usuario usuario = UsuariosData.SelecionarUsuario(dados[5]);
+            var id = int.Parse(dados[6]);
+            var status = (StatusTarefa)Enum.Parse(typeof(StatusTarefa), dados[7]);
+            var tamanho = (TipoTamanho)Enum.Parse(typeof(TipoTamanho), dados[8]);
 
             var tarefa = new Tarefas(id, titulo, descricao, dataInicio, dataFimPrevista, prioridade, usuario.Cpf, tamanho, status, null);
 
-            if (dados.Length >= 9)
+            if (dados.Length > 9)
             {
                 List<int> idTarefas = dados[9].Split('/').Select(x => int.Parse(x)).ToList();
                 tarefa.TarefasRelacionadas = idTarefas;
             }
-
             return tarefa;
         }
 
@@ -239,7 +235,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
                     }
 
                     var linha = $"{tarefa.Titulo},{tarefa.Descricao},{tarefa.DataInicio.Date.ToString("yyyy-MM-dd")},{tarefa.DataFimPrevista.Date.ToString("yyyy-MM-dd")}," +
-                    $"{tarefa.Prioridade},{tarefa.Responsavel.Cpf},{tarefa.Id},{tarefa.Status},{dataConclusao}," +
+                    $"{tarefa.Prioridade},{tarefa.Responsavel.Cpf},{tarefa.Id},{tarefa.Status},{tarefa.TipoTamanho}," +
                     $"{string.Join("/", tarefa.TarefasRelacionadas)}";
 
                     linhas.Add(linha);
