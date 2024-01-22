@@ -78,14 +78,14 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
                     Desenvolvedor usuario = new Desenvolvedor(senha, nome, cpf, email, true);
                     _desenvolvedor.Add(usuario);
                     _usuarios.Add(usuario);
-                    //SalvarDesenvolvedorTxt(_desenvolvedor);
+                    SalvarDesenvolvedorTxt(_desenvolvedor);
                 }
                 else
                 {
                     TechLeader usuario = new TechLeader(senha, nome, cpf, email, true);
                     _techLeader.Add(usuario);
                     _usuarios.Add(usuario);
-                    //SalvarTechLeaderTxt(_techLeader);
+                    SalvarTechLeaderTxt(_techLeader);
                 }
 
                 return true;
@@ -104,7 +104,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             {
                 _techLeader.Remove(SelecionarTechLeader(user.Cpf));
                 _usuarios.Remove(SelecionarUsuario(user.Cpf));
-                //SalvarTechLeaderTxt(_techLeader);
+                SalvarTechLeaderTxt(_techLeader);
                 return true;
 
             }
@@ -112,7 +112,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             {
                 _desenvolvedor.Remove(SelecionarDesenvolvedor(user.Cpf));
                 _usuarios.Remove(SelecionarUsuario(user.Cpf));
-                //SalvarDesenvolvedorTxt(_desenvolvedor);
+                SalvarDesenvolvedorTxt(_desenvolvedor);
                 return true;
             }
             return false;

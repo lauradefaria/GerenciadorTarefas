@@ -101,7 +101,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
                 }
 
                 _tarefas.Add(tarefa);
-                //SalvarTarefasTxt(_tarefas);
+                SalvarTarefasTxt(_tarefas);
                 return true;
             }
             catch
@@ -127,7 +127,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             if (tarefaExc != null)
             {
                 _tarefas.Remove(tarefaExc);
-                //SalvarTarefasTxt(_tarefas);
+                SalvarTarefasTxt(_tarefas);
             }
         }
 
@@ -149,7 +149,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
             if (flag)
             {
-                //SalvarTarefasTxt(_tarefas);
+                SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
@@ -173,7 +173,7 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
             if (flag)
             {
-               // SalvarTarefasTxt(_tarefas);
+               SalvarTarefasTxt(_tarefas);
             }
 
             return flag;
