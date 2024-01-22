@@ -61,7 +61,7 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
 </pre>
 
  ### Administrador
- Na tela principal de administrador há três botões: dois relacionados ao cadastro ou remoção de usuários (Desenvolvedor ou Tech Leader) e outro relacionado a visualização dos usuários ativos no sistema. <br/>
+ Na tela principal de administrador há três botões: dois relacionados ao cadastro e outro para remoção de usuários (Desenvolvedor ou Tech Leader). <br/>
 
  <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAtendente.png" width="400"> <br/>
@@ -80,7 +80,7 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   Figura 4: Tela Cadastramento de Tech Leader em Administrador<br/><br/>
   </p>
 
-  **REMOVER USUÁRIOS**: Abre uma nova janela para Remoção de usuários do sistema. Escolhe o tipo do usuário que deseja remover e depois o seu nome, após isso o usuário será removido do sistema. <br/>
+  **REMOVER USUÁRIOS**: Abre uma nova janela para Remoção de usuários do sistema. Escolhe o nome do usuário que deseja remover, após isso o usuário será removido do sistema. <br/>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaRemoverUsuarios.png" width="400"> <br/>
   Figura 5: Tela Remoção de Usuários em Administrador<br/><br/>
@@ -88,7 +88,7 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   
 ### Tech Leader
  
- Na tela principal de Tech Leader há cinco botões: um botão relacionado a criação de novas tarefas, dois relacionados a visualização (estatísticas das tarefas e outro para observar as tarefas ativas/desativadas) e dois botões relacionados a alterações de tarefas (status ou do responsável). <br/>
+ Na tela principal de Tech Leader há sete botões: um botão relacionado a criação de novas tarefas, dois relacionados a visualização (estatísticas das tarefas e outro para observar as tarefas ativas/desativadas), dois botões relacionados a alterações de tarefas (status ou do responsável), um botão para aprovar/reprovar tarefas pendentes ou em análise e uma opção para adicionar usuários desenvolvedores. <br/>
 
  <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaTechLeader.png" width="400"> <br/>
@@ -107,19 +107,19 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   Figura 8: Tela Visualização de Tarefas em Tech Leader<br/><br/>
   </p>
   
-  **ESTATÍSTICAS**: Abre uma nova janela para visualizar as estatísticas de cada tarefa, mostrando a quantidade de tarefas com seus respactivos status. <br/>
+  **ESTATÍSTICAS**: Abre uma nova janela para visualizar as estatísticas de cada tarefa, mostrando a quantidade de tarefas com seus respectivos status. Além disso, ao lado de cada estatísticas há um botão para observar quais as tarefas que possuem aquele status. <br/>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaEstatisticas.png" width="400"> <br/>
   Figura 10: Tela com Estatísicas de tarefas em Tech Leader<br/><br/>
   </p>     
   
-  **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status(Apenas permite colocar para Análise, Impedimento, Abandonada e EmAndamento). <br/>
+  **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status(Apenas permite colocar para Análise, Impedimento, Abandonada e EmAndamento). Não é permitido converter uma tarefa de atrasada para em andamento. <br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatus.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatusTech.png" width="400"> <br/>
   Figura 11: Tela para Alterar Status da Tarefa em Tech Leader<br/><br/>
   </p>  
   
-   **ALTERAR RESPONSÁVEL**: Abre uma nova janela para alterar o responsável de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo responsável. <br/>
+   **ALTERAR RESPONSÁVEL**: Abre uma nova janela para alterar o responsável de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo responsável, podendo ser tech leadr ou desenvolvedor. <br/>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarResponsavel.png" width="400"> <br/>
   Figura 12: Tela para Alterar Responsável da Tarefa em Tech Leader<br/><br/>
@@ -158,17 +158,17 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   Figura 17: Tela Visualização de Tarefas em Desenvolvedor<br/><br/>
   </p>
 
-  **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status (Apenas permite colocar para Análise, Impedimento e EmAndamento). <br/>
+  **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status (Apenas permite colocar para Análise, Impedimento e EmAndamento). Tarefas atrasadas não podem ter seu status alterado para EmAndamento.<br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatus.png" width="400"> <br/>
-  Figura 18: Tela para Alterar Status da Tarefa em Tech Leader<br/><br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatusDev.png" width="400"> <br/>
+  Figura 18: Tela para Alterar Status da Tarefa em Desenvolvedor<br/><br/>
   </p>  
 
 ---
 
 ## Dados
 
-Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Administrador) e Tarefas estão sendo inicializados dentro do código. Futuramente será adaptado para serem lidos de arquivos TXT localizados na pasta "Data", eles poderão ser alterados no decorrer do programa, sendo sempre atualizados.<br/>
+Os dados iniciais referentes aos Usuários (Tech Leader, Desenvolvedor e Administrador) e Tarefas estão contidos dentro de arquivos txt. Eles estão localizados na pasta "Data" e poderão ser alterados no decorrer do programa. Para alterar o caminho do arquivo de acordo com a sua máquina, coloque o caminho do aquivo na variável "FILE_PATH" presente em "TarefasData" e "UsuariosData" (DataBusiness). <br/>
 
 ---
 
