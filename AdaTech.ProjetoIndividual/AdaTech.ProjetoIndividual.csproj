@@ -12,4 +12,10 @@
     <Folder Include="Models\Data\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Models\Data\Tarefas.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

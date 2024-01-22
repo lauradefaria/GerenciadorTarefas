@@ -20,10 +20,9 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
         public static List<TechLeader> TechLeaders { get => _techLeader; set => _techLeader = value; }
         public static List<Administrador> Administrador { get => _administrador; set => _administrador = value; }
 
-        private static readonly string _DIRECTORY_PATH = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "Data";
-        private static readonly string _FILE_PATH_DESENVOLVEDOR = Path.Combine(_DIRECTORY_PATH, "Desenvolvedor.txt");
-        private static readonly string _FILE_PATH_TECH_LEADER = Path.Combine(_DIRECTORY_PATH, "TechLeader.txt");
-        private static readonly string _FILE_PATH_ADMINISTRADOR = Path.Combine(_DIRECTORY_PATH, "Administrador.txt");
+        private static readonly string _FILE_PATH_DESENVOLVEDOR = "C:\\Users\\lauraa\\Documents\\POO\\Gerenciador\\GerenciadorTarefas\\AdaTech.ProjetoIndividual\\Models\\Data\\Desenvolvedor.txt"; //Altere para o seu caminho do arquivo
+        private static readonly string _FILE_PATH_TECH_LEADER = "C:\\Users\\lauraa\\Documents\\POO\\Gerenciador\\GerenciadorTarefas\\AdaTech.ProjetoIndividual\\Models\\Data\\TechLeader.txt"; //Altere para o seu caminho do arquivo
+        private static readonly string _FILE_PATH_ADMINISTRADOR = "C:\\Users\\lauraa\\Documents\\POO\\Gerenciador\\GerenciadorTarefas\\AdaTech.ProjetoIndividual\\Models\\Data\\Administrador.txt"; //Altere para o seu caminho do arquivo
         private static Usuario _usuarioLogin;
 
         internal static Usuario UsuarioLogado()
@@ -44,25 +43,27 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
 
         internal static void CarregarTechLeader()
         {
-            _techLeader.Add(new TechLeader("123456", "Laura de Faria", "4455667788", "laura.faria@gmail.com"));
+           _techLeader = LerTlTxt();
         }
         internal static void CarregarDesenvolvedor()
         {
-            _desenvolvedor.Add(new Desenvolvedor("000000", "Carolina de Faria", "0123456789", "carolina.faria@gmail.com"));
+            _desenvolvedor = LerDevTxt();
+        }
+
+        internal static void CarregarAdm()
+        {
+           _administrador = LerAdmTxt();
         }
 
         internal static List<Usuario> CarregarUsuariosAtivos()
         {
             CarregarTechLeader();
             CarregarDesenvolvedor();
+            CarregarAdm();
 
             _usuarios.AddRange(_techLeader);
             _usuarios.AddRange(_desenvolvedor);
             _usuarios.AddRange(_administrador);
-
-            //_desenvolvedores = LerDevTxt();
-            // _techLeaders = LerTlTxt();
-            //_administrador = LerAdmTxt();
 
             return _usuarios;
         }
@@ -343,12 +344,13 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             string[] objetoString = linha.Split(',');
 
             string senha = objetoString[0];
+            MessageBox.Show($"{senha}");
             string nomeCompleto = objetoString[1];
             string cpf = objetoString[2];
             string email = objetoString[3];
-            if (objetoString.Length > 5)
+            if (objetoString.Length > 4)
             {
-                bool ativo = bool.Parse(objetoString[5]);
+                bool ativo = bool.Parse(objetoString[4]);
 
                 return new Tuple<List<string>, bool>(new List<string> { senha, nomeCompleto, cpf, email }, ativo);
             }

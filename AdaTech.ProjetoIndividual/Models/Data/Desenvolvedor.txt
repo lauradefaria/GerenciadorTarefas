@@ -1,0 +1,2 @@
+334455,Ricardo Cruz,11112222333,ricardo.santos@gmail.com,True
+000000,Carolina de Faria,0123456789,carolina.faria@gmail.com,true
