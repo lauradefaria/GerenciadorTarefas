@@ -21,7 +21,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas
             ConfigurarListBox();
 
             TarefasDesativadasController controller = new TarefasDesativadasController(this);
-            this.Text = "Visualizar Tarefas Ativas";
+            this.Text = "Visualizar Tarefas Desativadas";
         }
 
         private void ConfigurarListBox()

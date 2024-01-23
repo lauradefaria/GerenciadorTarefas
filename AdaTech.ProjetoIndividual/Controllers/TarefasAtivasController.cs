@@ -45,7 +45,6 @@ namespace AdaTech.ProjetoIndividual.Controllers
                         form.AdicionarTarefasNaListBox(infoTarefa);
                     }
                 }
-
             }
         }
     }

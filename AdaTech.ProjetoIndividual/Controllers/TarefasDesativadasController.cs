@@ -1,5 +1,6 @@
 ﻿using AdaTech.ProjetoIndividual.Models.Business.DataBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.TarefasBusiness;
+using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness;
 using AdaTech.ProjetoIndividual.Models.Business.UsuariosBusiness.Enums;
 using AdaTech.ProjetoIndividual.Views.Janelas;
 using System;
@@ -22,15 +23,27 @@ namespace AdaTech.ProjetoIndividual.Controllers
 
         public void ExibirTarefas()
         {
+            TarefasData.ConferirAtraso();
             List<Tarefas> listaTarefas = TarefasData.ListarTarefas();
+            Usuario usuario = UsuariosData.UsuarioLogado();
 
             foreach (Tarefas tarefa in listaTarefas)
             {
                 string infoTarefa = $"{tarefa.Titulo} - Prioridade {tarefa.Prioridade} - Data Início: {tarefa.DataInicio.ToShortDateString()} - {tarefa.Status} - Responsável: {tarefa.NomeResponsavel} - Id tarefa: {tarefa.Id}";
 
-                if (tarefa.Status == StatusTarefa.Concluida || tarefa.Status == StatusTarefa.Cancelada || tarefa.Status == StatusTarefa.Pendente)
+                if (usuario.TipoUsuario == TipoUsuario.Desenvolvedor && tarefa.Responsavel.Cpf == usuario.Cpf)
                 {
-                    form.AdicionarTarefasNaListBox(infoTarefa);
+                    if (tarefa.Status == StatusTarefa.Concluida || tarefa.Status == StatusTarefa.Cancelada || tarefa.Status == StatusTarefa.Pendente)
+                    {
+                        form.AdicionarTarefasNaListBox(infoTarefa);
+                    }
+                }
+                else if (usuario.TipoUsuario == TipoUsuario.TechLeader)
+                {
+                    if (tarefa.Status == StatusTarefa.Concluida || tarefa.Status == StatusTarefa.Cancelada || tarefa.Status == StatusTarefa.Pendente)
+                    {
+                        form.AdicionarTarefasNaListBox(infoTarefa);
+                    }
                 }
             }
         }
