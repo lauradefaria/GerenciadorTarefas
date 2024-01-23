@@ -101,16 +101,15 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   Figura 7: Tela de Criação de tarefa em TechLEader<br/><br/>
   </p>     
   
-**VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). <br/>
+**VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). Após a decisão, serão mostradas todas as tarefas cadastradas no sistema para visualização. <br/>
 <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
   Figura 8: Tela de Decisão sobre Visualização da Tarefa<br/><br/>
   </p>
-    
-Após a decisão, serão mostradas todas as tarefas cadastradas no sistema para visualização. <br/>
 
-    <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasDesativadas.png" width="400"> <br/>
+  <p align="center">
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasDesativadas.png" width="400"> <br/>
   Figura 9: Tela Visualização de Tarefas em Tech Leader<br/><br/>
   </p>
   
@@ -164,16 +163,15 @@ Após a decisão, serão mostradas todas as tarefas cadastradas no sistema para 
   Figura 17: Tela de Criação de tarefa em Desenvolvedor<br/><br/>
   </p>     
   
-**VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente).<br/>
+**VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). Após a decisão, serão mostradas as tarefas que pertencem ao desenvolvedor para visualização. <br/>
      <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
   Figura 18: Tela de Decisão sobre Visualização da Tarefa<br/><br/>
   </p>
-  
-Após a decisão, serão mostradas as tarefas que pertencem ao desenvolvedor para visualização. <br/>
 
-    <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaViusualizarDesativadaDev.png" width="400"> <br/>
+  <p align="center">
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaViusualizarDesativadaDev.png" width="400"><br/>
   Figura 19: Tela Visualização de Tarefas em Desenvolvedor<br/><br/>
   </p>
 
