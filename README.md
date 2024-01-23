@@ -64,25 +64,25 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
  Na tela principal de administrador há três botões: dois relacionados ao cadastro e outro para remoção de usuários (Desenvolvedor ou Tech Leader). <br/>
 
  <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAtendente.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAdministrador.png" width="400"> <br/>
   Figura 2: Tela Principal de Administrador <br/><br/><br/>
   </p>
   
 **CADASTRAR DESENVOLVEDOR**: Abre uma nova janela para cadastrar novos usuários do tipo desenvolvedor no sistema (campos: senha, nome, cpf, email). <br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarUsuarios.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarDesenvolvedor.png" width="400"> <br/>
   Figura 3: Tela Cadastramento de Desenvolvedor em Administrador<br/><br/>
   </p>       
   
 **CADASTRAR TECH LEADER**: Abre uma nova janela para cadastrar novos usuários do tipo tech leader no sistema (campos: senha, nome, cpf, email). <br/>
       <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaCadastrarUsuarios.png" width="400"> <br/>
+  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaCadastrarTech.png" width="400"> <br/>
   Figura 4: Tela Cadastramento de Tech Leader em Administrador<br/><br/>
   </p>
 
   **REMOVER USUÁRIOS**: Abre uma nova janela para Remoção de usuários do sistema. Escolhe o nome do usuário que deseja remover, após isso o usuário será removido do sistema. <br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaRemoverUsuarios.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaRemoverUsuario.png" width="400"> <br/>
   Figura 5: Tela Remoção de Usuários em Administrador<br/><br/>
   </p>     
   
@@ -97,14 +97,19 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   
 **CRIAR TAREFA**: Abre uma nova janela para cadastrar novas tarefas no sistema (campos: título, descrição, data de inicio, data de finalização, tamanho, prioridade, responsável e tarefas relacionadas). Para opção de escolha em responsável, serão mostrados todos os usuários (Tech Leader ou Desenvolvedor). Assim que finalizar o cadastramento, a tarefa será classificada como "Em andamento" ou "Atrasada", dependendo da sua data de início.<br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCriarTarefas.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCriarTarefa.png" width="400"> <br/>
   Figura 7: Tela de Criação de tarefa em TechLEader<br/><br/>
   </p>     
   
 **VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). <br/>
-      <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefas.png" width="400"> <br/>
-  Figura 8: Tela Visualização de Tarefas em Tech Leader<br/><br/>
+<p align="center">
+  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
+  Figura 8: Tela de Decisão sobre Visualização da Tarefa<br/>
+  </p>
+  
+    <p align="center">
+  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefasDesativadas.png" width="400"> <br/>
+  Figura 9: Tela Visualização de Tarefas em Tech Leader<br/><br/>
   </p>
   
   **ESTATÍSTICAS**: Abre uma nova janela para visualizar as estatísticas de cada tarefa, mostrando a quantidade de tarefas com seus respectivos status. Além disso, ao lado de cada estatísticas há um botão para observar quais as tarefas que possuem aquele status. <br/>
@@ -115,26 +120,31 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   
   **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status(Apenas permite colocar para Análise, Impedimento, Abandonada e EmAndamento). Não é permitido converter uma tarefa de atrasada para em andamento. <br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatusTech.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAltStatusTech.png" width="400"> <br/>
   Figura 11: Tela para Alterar Status da Tarefa em Tech Leader<br/><br/>
   </p>  
   
    **ALTERAR RESPONSÁVEL**: Abre uma nova janela para alterar o responsável de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo responsável, podendo ser tech leadr ou desenvolvedor. <br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarResponsavel.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAltResponsavel.png" width="400"> <br/>
   Figura 12: Tela para Alterar Responsável da Tarefa em Tech Leader<br/><br/>
   </p>  
   
   **APROVAR TAREFA**: Abre uma nova janela para escolher entre aprovar e reprovar tarefas pendentes ou em análise. Análise - Aprovada: Muda de status para Concluída | Reprovada: Muda de status para EmAndamento ou Atrasada. Pendente - Aprovada: Muda de status para EmAndamento ou Atrasada | Reprovada: Tarefa é excluída.<br/>
+  
+<p align="center">
+  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/MessageAprovarTarefa.png" width="400"> <br/>
+  Figura 13: Tela de Decisão sobre Tipo da Tarefa para Aprovar<br/>
+  </p>
       <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAprovarTarefa.png" width="400"> <br/>
-  Figura 13: Tela para Alterar Responsável da Tarefa em Tech Leader<br/><br/>
+  Figura 14: Tela para Alterar Responsável da Tarefa em Tech Leader<br/><br/>
   </p>  
 
  **CADASTRAR DESENVOLVEDOR**: Abre uma nova janela para cadastrar novos usuários do tipo desenvolvedor no sistema (campos: senha, nome, cpf, email). <br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarUsuarios.png" width="400"> <br/>
-  Figura 14: Tela de Cadastramento de Desenvolvedor em Tech Leader<br/><br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarDev.png" width="400"> <br/>
+  Figura 15: Tela de Cadastramento de Desenvolvedor em Tech Leader<br/><br/>
   </p>  
  
  ### Desenvolvedor
@@ -143,25 +153,30 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
 
  <p align="center">
   <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaDesenvolvedor.png" width="400"> <br/>
-  Figura 15: Tela Principal de Desenvolvedor <br/><br/><br/>
+  Figura 16: Tela Principal de Desenvolvedor <br/><br/><br/>
   </p>
   
 **CRIAR TAREFA**: Abre uma nova janela para cadastrar novas tarefas no sistema (campos: título, descrição, data de inicio, data de finalização, tamanho, prioridade, responsável e tarefas relacionadas). Para opção de escolha em responsável, será mostrado apenas o nome do próprio desenvolvedor. Assim que finalizar o cadastramento, a tarefa será classificada como "Pendente", na qual só poderá avançar com a permissão do Tech Leader.<br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCriarTarefas.png" width="400"> <br/>
-  Figura 16: Tela de Criação de tarefa em Desenvolvedor<br/><br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCriarTarefaDev.png" width="400"> <br/>
+  Figura 17: Tela de Criação de tarefa em Desenvolvedor<br/><br/>
   </p>     
   
 **VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). Apenas serão mostradas as tarefas relacionadas ao próprio desenvolvedor. <br/>
-      <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefas.png" width="400"> <br/>
-  Figura 17: Tela Visualização de Tarefas em Desenvolvedor<br/><br/>
+     <p align="center">
+  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
+  Figura 18: Tela de Decisão sobre Visualização da Tarefa<br/>
+  </p>
+  
+    <p align="center">
+  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarDesativadaDev.png" width="400"> <br/>
+  Figura 19: Tela Visualização de Tarefas em Desenvolvedor<br/><br/>
   </p>
 
   **ALTERAR STATUS**: Abre uma nova janela para alterar o status de uma tarefa no sistema. Escolhe a tarefa que será alterada e o seu novo status (Apenas permite colocar para Análise, Impedimento e EmAndamento). Tarefas atrasadas não podem ter seu status alterado para EmAndamento.<br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAlterarStatusDev.png" width="400"> <br/>
-  Figura 18: Tela para Alterar Status da Tarefa em Desenvolvedor<br/><br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaAltStatusDev.png" width="400"> <br/>
+  Figura 20: Tela para Alterar Status da Tarefa em Desenvolvedor<br/><br/>
   </p>  
 
 ---
