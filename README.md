@@ -76,7 +76,7 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   
 **CADASTRAR TECH LEADER**: Abre uma nova janela para cadastrar novos usuários do tipo tech leader no sistema (campos: senha, nome, cpf, email). <br/>
       <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaCadastrarTech.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarTech.png" width="400"> <br/>
   Figura 4: Tela Cadastramento de Tech Leader em Administrador<br/><br/>
   </p>
 
@@ -103,12 +103,12 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   
 **VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). <br/>
 <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
   Figura 8: Tela de Decisão sobre Visualização da Tarefa<br/>
   </p>
   
     <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefasDesativadas.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasDesativadas.png" width="400"> <br/>
   Figura 9: Tela Visualização de Tarefas em Tech Leader<br/><br/>
   </p>
   
@@ -133,7 +133,7 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   **APROVAR TAREFA**: Abre uma nova janela para escolher entre aprovar e reprovar tarefas pendentes ou em análise. Análise - Aprovada: Muda de status para Concluída | Reprovada: Muda de status para EmAndamento ou Atrasada. Pendente - Aprovada: Muda de status para EmAndamento ou Atrasada | Reprovada: Tarefa é excluída.<br/>
   
 <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/MessageAprovarTarefa.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/MessageAprovarTarefa.png" width="400"> <br/>
   Figura 13: Tela de Decisão sobre Tipo da Tarefa para Aprovar<br/>
   </p>
       <p align="center">
@@ -143,7 +143,7 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
 
  **CADASTRAR DESENVOLVEDOR**: Abre uma nova janela para cadastrar novos usuários do tipo desenvolvedor no sistema (campos: senha, nome, cpf, email). <br/>
       <p align="center">
-  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarDev.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaCadastrarDesenvolvedor.png" width="400"> <br/>
   Figura 15: Tela de Cadastramento de Desenvolvedor em Tech Leader<br/><br/>
   </p>  
  
@@ -164,12 +164,12 @@ Para testes, utilize os seguintes dados de Usuário e Senha: <br/><br/>
   
 **VISUALIZAR TAREFAS**: Abre uma nova janela para escolher quais tarefas serão visualizadas, podendo ser ativas (Em andamento, Atrasadas, Análise ou com Impedimento) ou desativadas (Concluídas, Abandonadas ou Pendente). Apenas serão mostradas as tarefas relacionadas ao próprio desenvolvedor. <br/>
      <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/MessageVisualizarTarefas.png" width="400"> <br/>
   Figura 18: Tela de Decisão sobre Visualização da Tarefa<br/>
   </p>
   
     <p align="center">
-  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/tauanyfeitosa/AdaTech.ProjetoFinal/blob/master/imgs/TelaVisualizarDesativadaDev.png" width="400"> <br/>
+  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarTarefasAtivas.png" width="400">  <img src="https://github.com/lauradefaria/GerenciadorTarefas/blob/master/imgs/TelaVisualizarDesativadaDev.png" width="400"> <br/>
   Figura 19: Tela Visualização de Tarefas em Desenvolvedor<br/><br/>
   </p>
 
