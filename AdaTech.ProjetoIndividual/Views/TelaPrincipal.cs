@@ -340,8 +340,8 @@ namespace AdaTech.ProjetoIndividual.Views
         }
         private void OnClickRemoverUsuario(object sender, EventArgs e)
         {
-            //JanelaRemoverUsuario user = new JanelaRemoverUsuario();
-            //user.ShowDialog();
+            JanelaRemoverUsuario user = new JanelaRemoverUsuario();
+            user.ShowDialog();
         }
         #endregion
 

@@ -344,7 +344,6 @@ namespace AdaTech.ProjetoIndividual.Models.Business.DataBusiness
             string[] objetoString = linha.Split(',');
 
             string senha = objetoString[0];
-            MessageBox.Show($"{senha}");
             string nomeCompleto = objetoString[1];
             string cpf = objetoString[2];
             string email = objetoString[3];

@@ -41,7 +41,7 @@ namespace AdaTech.ProjetoIndividual.Views.Janelas.JanelaAdm
 
             btnRemoverUsuario = new Button();
             btnRemoverUsuario.Text = "Remover Usuario";
-            btnRemoverUsuario.Location = new System.Drawing.Point(20, 480);
+            btnRemoverUsuario.Location = new System.Drawing.Point(20, 330);
             btnRemoverUsuario.Click += btnRemoverUsuarioClick;
             Controls.Add(btnRemoverUsuario);
 
